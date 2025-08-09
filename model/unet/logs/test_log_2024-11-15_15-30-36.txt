@@ -1,0 +1,901 @@
+2024-11-15 15:30:36,746 [INFO] start to test!
+2024-11-15 15:31:13,275 [INFO] the batch metric is: tensor([0.9647, 0.9686, 0.9314, 0.9321])
+2024-11-15 15:31:13,275 [DEBUG] test_metric in this batch is: tensor([0.9647, 0.9686, 0.9314, 0.9321])
+2024-11-15 15:31:13,275 [DEBUG] batch_count is: 1
+2024-11-15 15:32:10,166 [INFO] the batch metric is: tensor([0.9924, 0.9924, 0.9924, 0.9924])
+2024-11-15 15:32:10,167 [DEBUG] test_metric in this batch is: tensor([1.9572, 1.9610, 1.9238, 1.9245])
+2024-11-15 15:32:10,167 [DEBUG] batch_count is: 2
+2024-11-15 15:32:43,710 [INFO] the batch metric is: tensor([0.3730, 0.3730, 0.3730, 0.3730])
+2024-11-15 15:32:43,710 [DEBUG] test_metric in this batch is: tensor([2.3301, 2.3340, 2.2968, 2.2975])
+2024-11-15 15:32:43,710 [DEBUG] batch_count is: 3
+2024-11-15 15:33:14,001 [INFO] the batch metric is: tensor([0.9971, 0.5000, 0.9971, 0.9943])
+2024-11-15 15:33:14,002 [DEBUG] test_metric in this batch is: tensor([3.3273, 2.8340, 3.2939, 3.2917])
+2024-11-15 15:33:14,002 [DEBUG] batch_count is: 4
+2024-11-15 15:33:35,835 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 15:33:57,384 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 15:34:21,926 [INFO] the batch metric is: tensor([0.9743, 0.9743, 0.9743, 0.9743])
+2024-11-15 15:34:21,926 [DEBUG] test_metric in this batch is: tensor([4.3015, 3.8082, 4.2682, 4.2660])
+2024-11-15 15:34:21,927 [DEBUG] batch_count is: 5
+2024-11-15 15:35:22,023 [INFO] the batch metric is: tensor([0.3311, 0.3311, 0.3311, 0.3311])
+2024-11-15 15:35:22,023 [DEBUG] test_metric in this batch is: tensor([4.6327, 4.1394, 4.5993, 4.5972])
+2024-11-15 15:35:22,023 [DEBUG] batch_count is: 6
+2024-11-15 15:35:52,670 [INFO] the batch metric is: tensor([0.9960, 0.9538, 0.9517, 0.9921])
+2024-11-15 15:35:52,670 [DEBUG] test_metric in this batch is: tensor([5.6287, 5.0932, 5.5510, 5.5892])
+2024-11-15 15:35:52,670 [DEBUG] batch_count is: 7
+2024-11-15 15:36:31,515 [INFO] the batch metric is: tensor([0.9731, 0.9848, 0.8777, 0.9520])
+2024-11-15 15:36:31,516 [DEBUG] test_metric in this batch is: tensor([6.6018, 6.0780, 6.4288, 6.5413])
+2024-11-15 15:36:31,516 [DEBUG] batch_count is: 8
+2024-11-15 15:37:03,334 [INFO] the batch metric is: tensor([0.9972, 0.9972, 0.9972, 0.9972])
+2024-11-15 15:37:03,335 [DEBUG] test_metric in this batch is: tensor([7.5990, 7.0752, 7.4260, 7.5385])
+2024-11-15 15:37:03,335 [DEBUG] batch_count is: 9
+2024-11-15 15:37:40,926 [INFO] the batch metric is: tensor([0.9998, 0.9998, 0.9996, 0.9996])
+2024-11-15 15:37:40,926 [DEBUG] test_metric in this batch is: tensor([8.5988, 8.0750, 8.4255, 8.5381])
+2024-11-15 15:37:40,926 [DEBUG] batch_count is: 10
+2024-11-15 15:38:14,642 [INFO] the batch metric is: tensor([0.9926, 0.9596, 0.9558, 0.9856])
+2024-11-15 15:38:14,643 [DEBUG] test_metric in this batch is: tensor([9.5914, 9.0346, 9.3813, 9.5237])
+2024-11-15 15:38:14,643 [DEBUG] batch_count is: 11
+2024-11-15 15:39:11,443 [INFO] the batch metric is: tensor([0.8916, 0.8916, 0.8916, 0.8916])
+2024-11-15 15:39:11,444 [DEBUG] test_metric in this batch is: tensor([10.4831,  9.9262, 10.2729, 10.4153])
+2024-11-15 15:39:11,444 [DEBUG] batch_count is: 12
+2024-11-15 15:39:32,780 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 15:39:54,715 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 15:40:32,321 [INFO] the batch metric is: tensor([0.9692, 0.9729, 0.9123, 0.9411])
+2024-11-15 15:40:32,324 [DEBUG] test_metric in this batch is: tensor([11.4523, 10.8991, 11.1853, 11.3564])
+2024-11-15 15:40:32,324 [DEBUG] batch_count is: 13
+2024-11-15 15:41:09,376 [INFO] the batch metric is: tensor([0.9513, 0.9513, 0.9513, 0.9513])
+2024-11-15 15:41:09,376 [DEBUG] test_metric in this batch is: tensor([12.4036, 11.8505, 12.1366, 12.3077])
+2024-11-15 15:41:09,378 [DEBUG] batch_count is: 14
+2024-11-15 15:41:58,153 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 15:41:58,154 [DEBUG] test_metric in this batch is: tensor([13.4036, 12.8505, 13.1366, 13.3077])
+2024-11-15 15:41:58,154 [DEBUG] batch_count is: 15
+2024-11-15 15:42:21,572 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 15:42:21,573 [DEBUG] test_metric in this batch is: tensor([14.4036, 13.8505, 14.1366, 14.3077])
+2024-11-15 15:42:21,573 [DEBUG] batch_count is: 16
+2024-11-15 15:43:10,317 [INFO] the batch metric is: tensor([0.9908, 0.9908, 0.9908, 0.9908])
+2024-11-15 15:43:10,317 [DEBUG] test_metric in this batch is: tensor([15.3943, 14.8412, 15.1274, 15.2985])
+2024-11-15 15:43:10,317 [DEBUG] batch_count is: 17
+2024-11-15 15:43:49,946 [INFO] the batch metric is: tensor([0.9254, 0.7298, 0.7230, 0.9136])
+2024-11-15 15:43:49,947 [DEBUG] test_metric in this batch is: tensor([16.3198, 15.5711, 15.8504, 16.2122])
+2024-11-15 15:43:49,947 [DEBUG] batch_count is: 18
+2024-11-15 15:44:35,916 [INFO] the batch metric is: tensor([0.8689, 0.8689, 0.8689, 0.8689])
+2024-11-15 15:44:35,916 [DEBUG] test_metric in this batch is: tensor([17.1886, 16.4399, 16.7192, 17.0810])
+2024-11-15 15:44:35,916 [DEBUG] batch_count is: 19
+2024-11-15 15:45:14,773 [INFO] the batch metric is: tensor([0.8903, 0.9393, 0.6851, 0.8416])
+2024-11-15 15:45:14,775 [DEBUG] test_metric in this batch is: tensor([18.0789, 17.3793, 17.4043, 17.9226])
+2024-11-15 15:45:14,775 [DEBUG] batch_count is: 20
+2024-11-15 15:45:42,388 [INFO] the batch metric is: tensor([0.8947, 0.8947, 0.8947, 0.8947])
+2024-11-15 15:45:42,388 [DEBUG] test_metric in this batch is: tensor([18.9736, 18.2740, 18.2990, 18.8173])
+2024-11-15 15:45:42,388 [DEBUG] batch_count is: 21
+2024-11-15 15:46:09,939 [INFO] the batch metric is: tensor([0.8557, 0.7800, 0.6908, 0.7386])
+2024-11-15 15:46:09,939 [DEBUG] test_metric in this batch is: tensor([19.8293, 19.0539, 18.9898, 19.5559])
+2024-11-15 15:46:09,939 [DEBUG] batch_count is: 22
+2024-11-15 15:46:44,767 [INFO] the batch metric is: tensor([0.5946, 0.2988, 0.5976, 0.5946])
+2024-11-15 15:46:44,767 [DEBUG] test_metric in this batch is: tensor([20.4239, 19.3527, 19.5874, 20.1505])
+2024-11-15 15:46:44,767 [DEBUG] batch_count is: 23
+2024-11-15 15:47:33,239 [INFO] the batch metric is: tensor([0.9835, 0.9835, 0.9835, 0.9835])
+2024-11-15 15:47:33,241 [DEBUG] test_metric in this batch is: tensor([21.4073, 20.3362, 20.5709, 21.1339])
+2024-11-15 15:47:33,241 [DEBUG] batch_count is: 24
+2024-11-15 15:47:55,288 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 15:48:17,008 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 15:49:10,153 [INFO] the batch metric is: tensor([0.3092, 0.5050, 0.3405, 0.2098])
+2024-11-15 15:49:10,154 [DEBUG] test_metric in this batch is: tensor([21.7165, 20.8412, 20.9114, 21.3437])
+2024-11-15 15:49:10,154 [DEBUG] batch_count is: 25
+2024-11-15 15:49:34,684 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 15:49:34,687 [DEBUG] test_metric in this batch is: tensor([22.7165, 21.8412, 21.9114, 22.3437])
+2024-11-15 15:49:34,687 [DEBUG] batch_count is: 26
+2024-11-15 15:50:14,404 [INFO] the batch metric is: tensor([0.8951, 0.8951, 0.8951, 0.8951])
+2024-11-15 15:50:14,404 [DEBUG] test_metric in this batch is: tensor([23.6117, 22.7363, 22.8065, 23.2389])
+2024-11-15 15:50:14,405 [DEBUG] batch_count is: 27
+2024-11-15 15:50:37,059 [INFO] the batch metric is: tensor([0.6429, 0.7524, 0.4717, 0.4863])
+2024-11-15 15:50:37,059 [DEBUG] test_metric in this batch is: tensor([24.2546, 23.4887, 23.2782, 23.7252])
+2024-11-15 15:50:37,059 [DEBUG] batch_count is: 28
+2024-11-15 15:51:18,036 [INFO] the batch metric is: tensor([0.9079, 0.6837, 0.6781, 0.9062])
+2024-11-15 15:51:18,037 [DEBUG] test_metric in this batch is: tensor([25.1626, 24.1724, 23.9564, 24.6314])
+2024-11-15 15:51:18,037 [DEBUG] batch_count is: 29
+2024-11-15 15:52:15,090 [INFO] the batch metric is: tensor([0.9215, 0.4665, 0.6987, 0.9195])
+2024-11-15 15:52:15,092 [DEBUG] test_metric in this batch is: tensor([26.0841, 24.6389, 24.6550, 25.5509])
+2024-11-15 15:52:15,092 [DEBUG] batch_count is: 30
+2024-11-15 15:53:10,272 [INFO] the batch metric is: tensor([0.8511, 0.8511, 0.8511, 0.8511])
+2024-11-15 15:53:10,273 [DEBUG] test_metric in this batch is: tensor([26.9351, 25.4899, 25.5061, 26.4019])
+2024-11-15 15:53:10,273 [DEBUG] batch_count is: 31
+2024-11-15 15:53:58,276 [INFO] the batch metric is: tensor([0.8443, 0.8443, 0.8443, 0.8443])
+2024-11-15 15:53:58,276 [DEBUG] test_metric in this batch is: tensor([27.7795, 26.3343, 26.3504, 27.2462])
+2024-11-15 15:53:58,276 [DEBUG] batch_count is: 32
+2024-11-15 15:54:28,459 [INFO] the batch metric is: tensor([0.8784, 0.8784, 0.8784, 0.8784])
+2024-11-15 15:54:28,460 [DEBUG] test_metric in this batch is: tensor([28.6579, 27.2127, 27.2288, 28.1247])
+2024-11-15 15:54:28,460 [DEBUG] batch_count is: 33
+2024-11-15 15:54:50,910 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 15:54:50,910 [DEBUG] test_metric in this batch is: tensor([29.6579, 28.2127, 28.2288, 29.1247])
+2024-11-15 15:54:50,910 [DEBUG] batch_count is: 34
+2024-11-15 15:55:40,271 [INFO] the batch metric is: tensor([0.9094, 0.8857, 0.6839, 0.8615])
+2024-11-15 15:55:40,271 [DEBUG] test_metric in this batch is: tensor([30.5673, 29.0984, 28.9127, 29.9861])
+2024-11-15 15:55:40,271 [DEBUG] batch_count is: 35
+2024-11-15 15:56:09,187 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 15:56:09,188 [DEBUG] test_metric in this batch is: tensor([31.5673, 30.0984, 29.9127, 30.9861])
+2024-11-15 15:56:09,188 [DEBUG] batch_count is: 36
+2024-11-15 15:56:41,454 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 15:56:41,455 [DEBUG] test_metric in this batch is: tensor([32.5673, 31.0984, 30.9127, 31.9861])
+2024-11-15 15:56:41,455 [DEBUG] batch_count is: 37
+2024-11-15 15:57:33,159 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 15:57:33,159 [DEBUG] test_metric in this batch is: tensor([33.5673, 32.0984, 31.9127, 32.9861])
+2024-11-15 15:57:33,159 [DEBUG] batch_count is: 38
+2024-11-15 15:58:21,737 [INFO] the batch metric is: tensor([0.8613, 0.8613, 0.8613, 0.8613])
+2024-11-15 15:58:21,739 [DEBUG] test_metric in this batch is: tensor([34.4286, 32.9597, 32.7740, 33.8474])
+2024-11-15 15:58:21,739 [DEBUG] batch_count is: 39
+2024-11-15 15:59:00,899 [INFO] the batch metric is: tensor([0.9810, 0.9810, 0.9810, 0.9810])
+2024-11-15 15:59:00,900 [DEBUG] test_metric in this batch is: tensor([35.4096, 33.9407, 33.7550, 34.8284])
+2024-11-15 15:59:00,900 [DEBUG] batch_count is: 40
+2024-11-15 15:59:32,178 [INFO] the batch metric is: tensor([0.9641, 0.5000, 0.9641, 0.9295])
+2024-11-15 15:59:32,178 [DEBUG] test_metric in this batch is: tensor([36.3737, 34.4407, 34.7191, 35.7579])
+2024-11-15 15:59:32,178 [DEBUG] batch_count is: 41
+2024-11-15 15:59:56,366 [INFO] the batch metric is: tensor([0.9975, 0.9975, 0.9975, 0.9975])
+2024-11-15 15:59:56,366 [DEBUG] test_metric in this batch is: tensor([37.3712, 35.4382, 35.7166, 36.7554])
+2024-11-15 15:59:56,366 [DEBUG] batch_count is: 42
+2024-11-15 16:00:36,617 [INFO] the batch metric is: tensor([0.9410, 0.9044, 0.8740, 0.9067])
+2024-11-15 16:00:36,617 [DEBUG] test_metric in this batch is: tensor([38.3121, 36.3426, 36.5906, 37.6621])
+2024-11-15 16:00:36,617 [DEBUG] batch_count is: 43
+2024-11-15 16:01:28,554 [INFO] the batch metric is: tensor([0.9990, 0.9990, 0.9990, 0.9990])
+2024-11-15 16:01:28,556 [DEBUG] test_metric in this batch is: tensor([39.3111, 37.3415, 37.5896, 38.6611])
+2024-11-15 16:01:28,556 [DEBUG] batch_count is: 44
+2024-11-15 16:02:08,024 [INFO] the batch metric is: tensor([0.0745, 0.0745, 0.0745, 0.0745])
+2024-11-15 16:02:08,024 [DEBUG] test_metric in this batch is: tensor([39.3856, 37.4160, 37.6641, 38.7356])
+2024-11-15 16:02:08,025 [DEBUG] batch_count is: 45
+2024-11-15 16:02:46,013 [INFO] the batch metric is: tensor([0.5177, 0.5177, 0.5177, 0.5177])
+2024-11-15 16:02:46,014 [DEBUG] test_metric in this batch is: tensor([39.9033, 37.9337, 38.1818, 39.2533])
+2024-11-15 16:02:46,014 [DEBUG] batch_count is: 46
+2024-11-15 16:03:07,993 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:03:42,277 [INFO] the batch metric is: tensor([0.9748, 0.9860, 0.8835, 0.9548])
+2024-11-15 16:03:42,277 [DEBUG] test_metric in this batch is: tensor([40.8781, 38.9198, 39.0653, 40.2081])
+2024-11-15 16:03:42,277 [DEBUG] batch_count is: 47
+2024-11-15 16:04:27,905 [INFO] the batch metric is: tensor([0.5646, 0.5646, 0.5646, 0.5646])
+2024-11-15 16:04:27,905 [DEBUG] test_metric in this batch is: tensor([41.4427, 39.4844, 39.6299, 40.7727])
+2024-11-15 16:04:27,906 [DEBUG] batch_count is: 48
+2024-11-15 16:05:04,657 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:05:04,658 [DEBUG] test_metric in this batch is: tensor([42.4427, 40.4844, 40.6299, 41.7727])
+2024-11-15 16:05:04,658 [DEBUG] batch_count is: 49
+2024-11-15 16:05:34,002 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:05:34,003 [DEBUG] test_metric in this batch is: tensor([43.4427, 41.4844, 41.6299, 42.7727])
+2024-11-15 16:05:34,003 [DEBUG] batch_count is: 50
+2024-11-15 16:05:56,064 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:06:42,404 [INFO] the batch metric is: tensor([0.5633, 0.5633, 0.5633, 0.5633])
+2024-11-15 16:06:42,404 [DEBUG] test_metric in this batch is: tensor([44.0060, 42.0476, 42.1932, 43.3359])
+2024-11-15 16:06:42,404 [DEBUG] batch_count is: 51
+2024-11-15 16:07:43,400 [INFO] the batch metric is: tensor([0.9991, 0.9991, 0.9991, 0.9991])
+2024-11-15 16:07:43,401 [DEBUG] test_metric in this batch is: tensor([45.0051, 43.0467, 43.1922, 44.3350])
+2024-11-15 16:07:43,401 [DEBUG] batch_count is: 52
+2024-11-15 16:08:40,395 [INFO] the batch metric is: tensor([0.9976, 0.9976, 0.9976, 0.9976])
+2024-11-15 16:08:40,396 [DEBUG] test_metric in this batch is: tensor([46.0027, 44.0443, 44.1898, 45.3326])
+2024-11-15 16:08:40,396 [DEBUG] batch_count is: 53
+2024-11-15 16:09:23,580 [INFO] the batch metric is: tensor([0.7480, 0.7480, 0.7480, 0.7480])
+2024-11-15 16:09:23,580 [DEBUG] test_metric in this batch is: tensor([46.7507, 44.7923, 44.9379, 46.0806])
+2024-11-15 16:09:23,583 [DEBUG] batch_count is: 54
+2024-11-15 16:10:11,972 [INFO] the batch metric is: tensor([0.8646, 0.8646, 0.8646, 0.8646])
+2024-11-15 16:10:11,974 [DEBUG] test_metric in this batch is: tensor([47.6153, 45.6569, 45.8025, 46.9452])
+2024-11-15 16:10:11,975 [DEBUG] batch_count is: 55
+2024-11-15 16:10:55,439 [INFO] the batch metric is: tensor([0.8592, 0.6607, 0.6071, 0.8265])
+2024-11-15 16:10:55,439 [DEBUG] test_metric in this batch is: tensor([48.4745, 46.3176, 46.4095, 47.7717])
+2024-11-15 16:10:55,439 [DEBUG] batch_count is: 56
+2024-11-15 16:11:35,175 [INFO] the batch metric is: tensor([0.9792, 0.9792, 0.9792, 0.9792])
+2024-11-15 16:11:35,175 [DEBUG] test_metric in this batch is: tensor([49.4536, 47.2968, 47.3887, 48.7509])
+2024-11-15 16:11:35,176 [DEBUG] batch_count is: 57
+2024-11-15 16:12:30,257 [INFO] the batch metric is: tensor([0.8250, 0.8250, 0.8250, 0.8250])
+2024-11-15 16:12:30,258 [DEBUG] test_metric in this batch is: tensor([50.2786, 48.1218, 48.2137, 49.5759])
+2024-11-15 16:12:30,258 [DEBUG] batch_count is: 58
+2024-11-15 16:12:52,142 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:13:14,025 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:13:35,325 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:13:59,300 [INFO] the batch metric is: tensor([0.8546, 0.9215, 0.5906, 0.8055])
+2024-11-15 16:13:59,301 [DEBUG] test_metric in this batch is: tensor([51.1333, 49.0433, 48.8043, 50.3814])
+2024-11-15 16:13:59,301 [DEBUG] batch_count is: 59
+2024-11-15 16:14:42,177 [INFO] the batch metric is: tensor([0.6963, 0.6963, 0.6963, 0.6963])
+2024-11-15 16:14:42,177 [DEBUG] test_metric in this batch is: tensor([51.8296, 49.7396, 49.5006, 51.0776])
+2024-11-15 16:14:42,177 [DEBUG] batch_count is: 60
+2024-11-15 16:15:41,714 [INFO] the batch metric is: tensor([0.9858, 0.9858, 0.9858, 0.9858])
+2024-11-15 16:15:41,715 [DEBUG] test_metric in this batch is: tensor([52.8153, 50.7253, 50.4863, 52.0634])
+2024-11-15 16:15:41,715 [DEBUG] batch_count is: 61
+2024-11-15 16:16:10,949 [INFO] the batch metric is: tensor([0.9894, 0.9922, 0.9738, 0.9792])
+2024-11-15 16:16:10,949 [DEBUG] test_metric in this batch is: tensor([53.8047, 51.7175, 51.4601, 53.0426])
+2024-11-15 16:16:10,949 [DEBUG] batch_count is: 62
+2024-11-15 16:16:57,662 [INFO] the batch metric is: tensor([0.9991, 0.9991, 0.9991, 0.9991])
+2024-11-15 16:16:57,665 [DEBUG] test_metric in this batch is: tensor([54.8038, 52.7166, 52.4592, 54.0417])
+2024-11-15 16:16:57,665 [DEBUG] batch_count is: 63
+2024-11-15 16:17:51,331 [INFO] the batch metric is: tensor([0.9799, 0.4941, 0.9882, 0.9799])
+2024-11-15 16:17:51,332 [DEBUG] test_metric in this batch is: tensor([55.7837, 53.2107, 53.4474, 55.0216])
+2024-11-15 16:17:51,332 [DEBUG] batch_count is: 64
+2024-11-15 16:18:35,744 [INFO] the batch metric is: tensor([0.9808, 0.9808, 0.9808, 0.9808])
+2024-11-15 16:18:35,745 [DEBUG] test_metric in this batch is: tensor([56.7645, 54.1915, 54.4282, 56.0024])
+2024-11-15 16:18:35,745 [DEBUG] batch_count is: 65
+2024-11-15 16:19:03,504 [INFO] the batch metric is: tensor([0.9036, 0.8548, 0.7918, 0.8194])
+2024-11-15 16:19:03,505 [DEBUG] test_metric in this batch is: tensor([57.6682, 55.0463, 55.2200, 56.8218])
+2024-11-15 16:19:03,505 [DEBUG] batch_count is: 66
+2024-11-15 16:19:30,535 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:19:30,535 [DEBUG] test_metric in this batch is: tensor([58.6682, 56.0463, 56.2200, 57.8218])
+2024-11-15 16:19:30,535 [DEBUG] batch_count is: 67
+2024-11-15 16:20:24,803 [INFO] the batch metric is: tensor([0.9973, 0.9973, 0.9973, 0.9973])
+2024-11-15 16:20:24,804 [DEBUG] test_metric in this batch is: tensor([59.6654, 57.0435, 57.2172, 58.8191])
+2024-11-15 16:20:24,804 [DEBUG] batch_count is: 68
+2024-11-15 16:20:59,645 [INFO] the batch metric is: tensor([0.8826, 0.8826, 0.8826, 0.8826])
+2024-11-15 16:20:59,646 [DEBUG] test_metric in this batch is: tensor([60.5480, 57.9262, 58.0998, 59.7017])
+2024-11-15 16:20:59,646 [DEBUG] batch_count is: 69
+2024-11-15 16:21:25,202 [INFO] the batch metric is: tensor([0.9904, 0.9905, 0.9810, 0.9810])
+2024-11-15 16:21:25,202 [DEBUG] test_metric in this batch is: tensor([61.5385, 58.9166, 59.0809, 60.6827])
+2024-11-15 16:21:25,202 [DEBUG] batch_count is: 70
+2024-11-15 16:22:02,188 [INFO] the batch metric is: tensor([0.8469, 0.8469, 0.8469, 0.8469])
+2024-11-15 16:22:02,189 [DEBUG] test_metric in this batch is: tensor([62.3854, 59.7635, 59.9278, 61.5297])
+2024-11-15 16:22:02,191 [DEBUG] batch_count is: 71
+2024-11-15 16:22:57,751 [INFO] the batch metric is: tensor([0.9623, 0.9623, 0.9623, 0.9623])
+2024-11-15 16:22:57,751 [DEBUG] test_metric in this batch is: tensor([63.3477, 60.7259, 60.8901, 62.4920])
+2024-11-15 16:22:57,751 [DEBUG] batch_count is: 72
+2024-11-15 16:23:30,533 [INFO] the batch metric is: tensor([0.9801, 0.8234, 0.8131, 0.9607])
+2024-11-15 16:23:30,534 [DEBUG] test_metric in this batch is: tensor([64.3279, 61.5493, 61.7032, 63.4527])
+2024-11-15 16:23:30,534 [DEBUG] batch_count is: 73
+2024-11-15 16:24:23,338 [INFO] the batch metric is: tensor([0.9946, 0.9946, 0.9946, 0.9946])
+2024-11-15 16:24:23,338 [DEBUG] test_metric in this batch is: tensor([65.3225, 62.5439, 62.6978, 64.4473])
+2024-11-15 16:24:23,338 [DEBUG] batch_count is: 74
+2024-11-15 16:25:01,917 [INFO] the batch metric is: tensor([1.0000, 1.0000, 1.0000, 1.0000])
+2024-11-15 16:25:01,917 [DEBUG] test_metric in this batch is: tensor([66.3225, 63.5439, 63.6978, 65.4473])
+2024-11-15 16:25:01,917 [DEBUG] batch_count is: 75
+2024-11-15 16:25:43,939 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:25:43,940 [DEBUG] test_metric in this batch is: tensor([67.3225, 64.5439, 64.6978, 66.4473])
+2024-11-15 16:25:43,940 [DEBUG] batch_count is: 76
+2024-11-15 16:26:08,534 [INFO] the batch metric is: tensor([0.9884, 0.9844, 0.9754, 0.9772])
+2024-11-15 16:26:08,534 [DEBUG] test_metric in this batch is: tensor([68.3109, 65.5282, 65.6733, 67.4245])
+2024-11-15 16:26:08,534 [DEBUG] batch_count is: 77
+2024-11-15 16:26:31,461 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:26:31,461 [DEBUG] test_metric in this batch is: tensor([69.3109, 66.5282, 66.6733, 68.4245])
+2024-11-15 16:26:31,461 [DEBUG] batch_count is: 78
+2024-11-15 16:27:12,087 [INFO] the batch metric is: tensor([0.7290, 0.8524, 0.4686, 0.6661])
+2024-11-15 16:27:12,087 [DEBUG] test_metric in this batch is: tensor([70.0399, 67.3807, 67.1419, 69.0906])
+2024-11-15 16:27:12,087 [DEBUG] batch_count is: 79
+2024-11-15 16:27:53,288 [INFO] the batch metric is: tensor([0.3178, 0.6536, 0.1645, 0.3030])
+2024-11-15 16:27:53,288 [DEBUG] test_metric in this batch is: tensor([70.3577, 68.0343, 67.3064, 69.3935])
+2024-11-15 16:27:53,288 [DEBUG] batch_count is: 80
+2024-11-15 16:28:44,659 [INFO] the batch metric is: tensor([0.9882, 0.9882, 0.9882, 0.9882])
+2024-11-15 16:28:44,660 [DEBUG] test_metric in this batch is: tensor([71.3459, 69.0225, 68.2946, 70.3817])
+2024-11-15 16:28:44,660 [DEBUG] batch_count is: 81
+2024-11-15 16:29:09,385 [INFO] the batch metric is: tensor([0.8073, 0.8073, 0.8073, 0.8073])
+2024-11-15 16:29:09,385 [DEBUG] test_metric in this batch is: tensor([72.1532, 69.8298, 69.1019, 71.1890])
+2024-11-15 16:29:09,386 [DEBUG] batch_count is: 82
+2024-11-15 16:29:38,593 [INFO] the batch metric is: tensor([0.9440, 0.5808, 0.5505, 0.9060])
+2024-11-15 16:29:38,594 [DEBUG] test_metric in this batch is: tensor([73.0972, 70.4106, 69.6524, 72.0951])
+2024-11-15 16:29:38,594 [DEBUG] batch_count is: 83
+2024-11-15 16:30:42,391 [INFO] the batch metric is: tensor([0.8328, 0.8328, 0.8328, 0.8328])
+2024-11-15 16:30:42,391 [DEBUG] test_metric in this batch is: tensor([73.9299, 71.2434, 70.4851, 72.9278])
+2024-11-15 16:30:42,391 [DEBUG] batch_count is: 84
+2024-11-15 16:31:27,416 [INFO] the batch metric is: tensor([0.5630, 0.5630, 0.5630, 0.5630])
+2024-11-15 16:31:27,416 [DEBUG] test_metric in this batch is: tensor([74.4929, 71.8063, 71.0481, 73.4908])
+2024-11-15 16:31:27,416 [DEBUG] batch_count is: 85
+2024-11-15 16:31:56,703 [INFO] the batch metric is: tensor([0.9754, 0.9649, 0.9466, 0.9516])
+2024-11-15 16:31:56,703 [DEBUG] test_metric in this batch is: tensor([75.4683, 72.7712, 71.9947, 74.4424])
+2024-11-15 16:31:56,703 [DEBUG] batch_count is: 86
+2024-11-15 16:32:51,890 [INFO] the batch metric is: tensor([0.9633, 0.9633, 0.9633, 0.9633])
+2024-11-15 16:32:51,891 [DEBUG] test_metric in this batch is: tensor([76.4315, 73.7345, 72.9580, 75.4057])
+2024-11-15 16:32:51,891 [DEBUG] batch_count is: 87
+2024-11-15 16:33:52,186 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:33:52,187 [DEBUG] test_metric in this batch is: tensor([77.4315, 74.7345, 73.9580, 76.4057])
+2024-11-15 16:33:52,187 [DEBUG] batch_count is: 88
+2024-11-15 16:34:58,620 [INFO] the batch metric is: tensor([0.9997, 0.9997, 0.9997, 0.9997])
+2024-11-15 16:34:58,621 [DEBUG] test_metric in this batch is: tensor([78.4313, 75.7343, 74.9577, 77.4054])
+2024-11-15 16:34:58,621 [DEBUG] batch_count is: 89
+2024-11-15 16:35:34,904 [INFO] the batch metric is: tensor([0.8194, 0.7328, 0.6256, 0.6775])
+2024-11-15 16:35:34,904 [DEBUG] test_metric in this batch is: tensor([79.2507, 76.4670, 75.5833, 78.0829])
+2024-11-15 16:35:34,904 [DEBUG] batch_count is: 90
+2024-11-15 16:36:06,047 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:36:06,048 [DEBUG] test_metric in this batch is: tensor([80.2507, 77.4670, 76.5833, 79.0829])
+2024-11-15 16:36:06,048 [DEBUG] batch_count is: 91
+2024-11-15 16:36:28,077 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:37:09,853 [INFO] the batch metric is: tensor([0.9936, 0.9936, 0.9936, 0.9936])
+2024-11-15 16:37:09,853 [DEBUG] test_metric in this batch is: tensor([81.2442, 78.4606, 77.5769, 80.0765])
+2024-11-15 16:37:09,853 [DEBUG] batch_count is: 92
+2024-11-15 16:37:50,152 [INFO] the batch metric is: tensor([0.6428, 0.7953, 0.4302, 0.5497])
+2024-11-15 16:37:50,152 [DEBUG] test_metric in this batch is: tensor([81.8870, 79.2559, 78.0071, 80.6262])
+2024-11-15 16:37:50,152 [DEBUG] batch_count is: 93
+2024-11-15 16:38:36,302 [INFO] the batch metric is: tensor([0.9269, 0.9269, 0.9269, 0.9269])
+2024-11-15 16:38:36,303 [DEBUG] test_metric in this batch is: tensor([82.8139, 80.1828, 78.9339, 81.5531])
+2024-11-15 16:38:36,303 [DEBUG] batch_count is: 94
+2024-11-15 16:39:04,660 [INFO] the batch metric is: tensor([0.9993, 0.9993, 0.9993, 0.9993])
+2024-11-15 16:39:04,660 [DEBUG] test_metric in this batch is: tensor([83.8132, 81.1821, 79.9332, 82.5524])
+2024-11-15 16:39:04,660 [DEBUG] batch_count is: 95
+2024-11-15 16:39:42,142 [INFO] the batch metric is: tensor([0.7344, 0.7344, 0.7344, 0.7344])
+2024-11-15 16:39:42,142 [DEBUG] test_metric in this batch is: tensor([84.5476, 81.9165, 80.6676, 83.2868])
+2024-11-15 16:39:42,142 [DEBUG] batch_count is: 96
+2024-11-15 16:40:43,511 [INFO] the batch metric is: tensor([1.0000, 1.0000, 1.0000, 1.0000])
+2024-11-15 16:40:43,511 [DEBUG] test_metric in this batch is: tensor([85.5475, 82.9164, 81.6676, 84.2868])
+2024-11-15 16:40:43,511 [DEBUG] batch_count is: 97
+2024-11-15 16:41:14,375 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:41:14,375 [DEBUG] test_metric in this batch is: tensor([86.5475, 83.9164, 82.6676, 85.2868])
+2024-11-15 16:41:14,376 [DEBUG] batch_count is: 98
+2024-11-15 16:41:46,515 [INFO] the batch metric is: tensor([0.8907, 0.8907, 0.8907, 0.8907])
+2024-11-15 16:41:46,515 [DEBUG] test_metric in this batch is: tensor([87.4382, 84.8071, 83.5583, 86.1774])
+2024-11-15 16:41:46,515 [DEBUG] batch_count is: 99
+2024-11-15 16:42:30,566 [INFO] the batch metric is: tensor([0.9165, 0.5895, 0.5723, 0.8910])
+2024-11-15 16:42:30,567 [DEBUG] test_metric in this batch is: tensor([88.3547, 85.3966, 84.1306, 87.0684])
+2024-11-15 16:42:30,567 [DEBUG] batch_count is: 100
+2024-11-15 16:43:11,589 [INFO] the batch metric is: tensor([0.9168, 0.9168, 0.9168, 0.9168])
+2024-11-15 16:43:11,590 [DEBUG] test_metric in this batch is: tensor([89.2715, 86.3134, 85.0474, 87.9852])
+2024-11-15 16:43:11,590 [DEBUG] batch_count is: 101
+2024-11-15 16:43:54,564 [INFO] the batch metric is: tensor([0.9979, 0.9979, 0.9979, 0.9979])
+2024-11-15 16:43:54,565 [DEBUG] test_metric in this batch is: tensor([90.2694, 87.3114, 86.0453, 88.9831])
+2024-11-15 16:43:54,565 [DEBUG] batch_count is: 102
+2024-11-15 16:44:59,775 [INFO] the batch metric is: tensor([0.8016, 0.8016, 0.8016, 0.8016])
+2024-11-15 16:44:59,776 [DEBUG] test_metric in this batch is: tensor([91.0710, 88.1129, 86.8469, 89.7847])
+2024-11-15 16:44:59,776 [DEBUG] batch_count is: 103
+2024-11-15 16:45:47,308 [INFO] the batch metric is: tensor([0.9957, 0.9957, 0.9957, 0.9957])
+2024-11-15 16:45:47,309 [DEBUG] test_metric in this batch is: tensor([92.0667, 89.1087, 87.8426, 90.7804])
+2024-11-15 16:45:47,309 [DEBUG] batch_count is: 104
+2024-11-15 16:46:18,053 [INFO] the batch metric is: tensor([0.9766, 0.5000, 0.9766, 0.9538])
+2024-11-15 16:46:18,053 [DEBUG] test_metric in this batch is: tensor([93.0434, 89.6087, 88.8193, 91.7343])
+2024-11-15 16:46:18,053 [DEBUG] batch_count is: 105
+2024-11-15 16:46:40,051 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:47:31,294 [INFO] the batch metric is: tensor([0.8980, 0.8747, 0.8013, 0.8110])
+2024-11-15 16:47:31,294 [DEBUG] test_metric in this batch is: tensor([93.9414, 90.4834, 89.6206, 92.5453])
+2024-11-15 16:47:31,294 [DEBUG] batch_count is: 106
+2024-11-15 16:47:58,583 [INFO] the batch metric is: tensor([0.8450, 0.6482, 0.5653, 0.7158])
+2024-11-15 16:47:58,583 [DEBUG] test_metric in this batch is: tensor([94.7864, 91.1316, 90.1860, 93.2610])
+2024-11-15 16:47:58,583 [DEBUG] batch_count is: 107
+2024-11-15 16:48:33,183 [INFO] the batch metric is: tensor([0.9634, 0.9567, 0.7731, 0.9410])
+2024-11-15 16:48:33,183 [DEBUG] test_metric in this batch is: tensor([95.7499, 92.0883, 90.9591, 94.2020])
+2024-11-15 16:48:33,183 [DEBUG] batch_count is: 108
+2024-11-15 16:48:55,079 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:49:23,138 [INFO] the batch metric is: tensor([0.8204, 0.9024, 0.5674, 0.7667])
+2024-11-15 16:49:23,139 [DEBUG] test_metric in this batch is: tensor([96.5702, 92.9907, 91.5265, 94.9688])
+2024-11-15 16:49:23,139 [DEBUG] batch_count is: 109
+2024-11-15 16:49:45,094 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:50:24,157 [INFO] the batch metric is: tensor([0.8481, 0.5000, 0.8481, 0.7193])
+2024-11-15 16:50:24,157 [DEBUG] test_metric in this batch is: tensor([97.4183, 93.4907, 92.3746, 95.6881])
+2024-11-15 16:50:24,157 [DEBUG] batch_count is: 110
+2024-11-15 16:50:45,546 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:51:13,922 [INFO] the batch metric is: tensor([0.8111, 0.5113, 0.4181, 0.6604])
+2024-11-15 16:51:13,922 [DEBUG] test_metric in this batch is: tensor([98.2294, 94.0020, 92.7927, 96.3485])
+2024-11-15 16:51:13,922 [DEBUG] batch_count is: 111
+2024-11-15 16:51:55,138 [INFO] the batch metric is: tensor([0.9099, 0.9099, 0.9099, 0.9099])
+2024-11-15 16:51:55,141 [DEBUG] test_metric in this batch is: tensor([99.1393, 94.9119, 93.7026, 97.2584])
+2024-11-15 16:51:55,141 [DEBUG] batch_count is: 112
+2024-11-15 16:52:33,159 [INFO] the batch metric is: tensor([0.8970, 0.8876, 0.8077, 0.8104])
+2024-11-15 16:52:33,159 [DEBUG] test_metric in this batch is: tensor([100.0363,  95.7994,  94.5103,  98.0688])
+2024-11-15 16:52:33,160 [DEBUG] batch_count is: 113
+2024-11-15 16:53:11,457 [INFO] the batch metric is: tensor([0.8113, 0.8113, 0.8113, 0.8113])
+2024-11-15 16:53:11,457 [DEBUG] test_metric in this batch is: tensor([100.8476,  96.6108,  95.3216,  98.8801])
+2024-11-15 16:53:11,460 [DEBUG] batch_count is: 114
+2024-11-15 16:53:33,122 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:54:19,637 [INFO] the batch metric is: tensor([0.9554, 0.9554, 0.9554, 0.9554])
+2024-11-15 16:54:19,640 [DEBUG] test_metric in this batch is: tensor([101.8030,  97.5662,  96.2770,  99.8355])
+2024-11-15 16:54:19,640 [DEBUG] batch_count is: 115
+2024-11-15 16:54:45,919 [INFO] the batch metric is: tensor([0.8086, 0.8086, 0.8086, 0.8086])
+2024-11-15 16:54:45,919 [DEBUG] test_metric in this batch is: tensor([102.6116,  98.3748,  97.0856, 100.6441])
+2024-11-15 16:54:45,919 [DEBUG] batch_count is: 116
+2024-11-15 16:55:18,453 [INFO] the batch metric is: tensor([0.4525, 0.4525, 0.4525, 0.4525])
+2024-11-15 16:55:18,453 [DEBUG] test_metric in this batch is: tensor([103.0641,  98.8273,  97.5382, 101.0967])
+2024-11-15 16:55:18,456 [DEBUG] batch_count is: 117
+2024-11-15 16:56:08,444 [INFO] the batch metric is: tensor([0.9999, 0.9999, 0.9999, 0.9999])
+2024-11-15 16:56:08,445 [DEBUG] test_metric in this batch is: tensor([104.0641,  99.8272,  98.5381, 102.0966])
+2024-11-15 16:56:08,445 [DEBUG] batch_count is: 118
+2024-11-15 16:56:40,331 [INFO] the batch metric is: tensor([0.7572, 0.7572, 0.7572, 0.7572])
+2024-11-15 16:56:40,332 [DEBUG] test_metric in this batch is: tensor([104.8213, 100.5844,  99.2953, 102.8538])
+2024-11-15 16:56:40,332 [DEBUG] batch_count is: 119
+2024-11-15 16:57:18,990 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:57:18,991 [DEBUG] test_metric in this batch is: tensor([105.8213, 101.5844, 100.2953, 103.8538])
+2024-11-15 16:57:18,991 [DEBUG] batch_count is: 120
+2024-11-15 16:58:05,741 [INFO] the batch metric is: tensor([0.9995, 0.9995, 0.9995, 0.9995])
+2024-11-15 16:58:05,741 [DEBUG] test_metric in this batch is: tensor([106.8207, 102.5839, 101.2948, 104.8533])
+2024-11-15 16:58:05,741 [DEBUG] batch_count is: 121
+2024-11-15 16:58:57,572 [INFO] the batch metric is: tensor([1.0000, 1.0000, 1.0000, 1.0000])
+2024-11-15 16:58:57,572 [DEBUG] test_metric in this batch is: tensor([107.8207, 103.5839, 102.2947, 105.8532])
+2024-11-15 16:58:57,572 [DEBUG] batch_count is: 122
+2024-11-15 16:59:19,455 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 16:59:41,871 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 16:59:41,872 [DEBUG] test_metric in this batch is: tensor([108.8207, 104.5839, 103.2947, 106.8532])
+2024-11-15 16:59:41,872 [DEBUG] batch_count is: 123
+2024-11-15 17:00:44,428 [INFO] the batch metric is: tensor([0.5836, 0.5836, 0.5836, 0.5836])
+2024-11-15 17:00:44,428 [DEBUG] test_metric in this batch is: tensor([109.4043, 105.1675, 103.8784, 107.4369])
+2024-11-15 17:00:44,428 [DEBUG] batch_count is: 124
+2024-11-15 17:01:19,513 [INFO] the batch metric is: tensor([0.9474, 0.9474, 0.9474, 0.9474])
+2024-11-15 17:01:19,514 [DEBUG] test_metric in this batch is: tensor([110.3517, 106.1149, 104.8257, 108.3842])
+2024-11-15 17:01:19,514 [DEBUG] batch_count is: 125
+2024-11-15 17:01:56,763 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:01:56,763 [DEBUG] test_metric in this batch is: tensor([111.3517, 107.1149, 105.8257, 109.3842])
+2024-11-15 17:01:56,763 [DEBUG] batch_count is: 126
+2024-11-15 17:02:47,655 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:02:47,656 [DEBUG] test_metric in this batch is: tensor([112.3517, 108.1149, 106.8257, 110.3842])
+2024-11-15 17:02:47,656 [DEBUG] batch_count is: 127
+2024-11-15 17:03:29,155 [INFO] the batch metric is: tensor([0.6648, 0.6648, 0.6648, 0.6648])
+2024-11-15 17:03:29,156 [DEBUG] test_metric in this batch is: tensor([113.0165, 108.7796, 107.4905, 111.0490])
+2024-11-15 17:03:29,156 [DEBUG] batch_count is: 128
+2024-11-15 17:04:21,443 [INFO] the batch metric is: tensor([0.9996, 0.9998, 0.9977, 0.9993])
+2024-11-15 17:04:21,444 [DEBUG] test_metric in this batch is: tensor([114.0161, 109.7794, 108.4881, 112.0483])
+2024-11-15 17:04:21,444 [DEBUG] batch_count is: 129
+2024-11-15 17:04:54,027 [INFO] the batch metric is: tensor([0.9895, 0.9895, 0.9895, 0.9895])
+2024-11-15 17:04:54,028 [DEBUG] test_metric in this batch is: tensor([115.0056, 110.7690, 109.4777, 113.0378])
+2024-11-15 17:04:54,028 [DEBUG] batch_count is: 130
+2024-11-15 17:05:26,542 [INFO] the batch metric is: tensor([0.9452, 0.9586, 0.9083, 0.9112])
+2024-11-15 17:05:26,542 [DEBUG] test_metric in this batch is: tensor([115.9508, 111.7275, 110.3859, 113.9489])
+2024-11-15 17:05:26,542 [DEBUG] batch_count is: 131
+2024-11-15 17:06:06,444 [INFO] the batch metric is: tensor([0.7163, 0.7163, 0.7163, 0.7163])
+2024-11-15 17:06:06,445 [DEBUG] test_metric in this batch is: tensor([116.6671, 112.4438, 111.1023, 114.6653])
+2024-11-15 17:06:06,445 [DEBUG] batch_count is: 132
+2024-11-15 17:07:09,913 [INFO] the batch metric is: tensor([0.9935, 0.9935, 0.9935, 0.9935])
+2024-11-15 17:07:09,914 [DEBUG] test_metric in this batch is: tensor([117.6607, 113.4374, 112.0958, 115.6588])
+2024-11-15 17:07:09,914 [DEBUG] batch_count is: 133
+2024-11-15 17:07:45,049 [INFO] the batch metric is: tensor([0.8441, 0.8070, 0.7033, 0.7205])
+2024-11-15 17:07:45,050 [DEBUG] test_metric in this batch is: tensor([118.5047, 114.2444, 112.7991, 116.3793])
+2024-11-15 17:07:45,050 [DEBUG] batch_count is: 134
+2024-11-15 17:08:19,259 [INFO] the batch metric is: tensor([0.9904, 0.9940, 0.9634, 0.9813])
+2024-11-15 17:08:19,259 [DEBUG] test_metric in this batch is: tensor([119.4951, 115.2384, 113.7625, 117.3606])
+2024-11-15 17:08:19,259 [DEBUG] batch_count is: 135
+2024-11-15 17:08:55,600 [INFO] the batch metric is: tensor([0.9982, 0.9982, 0.9982, 0.9982])
+2024-11-15 17:08:55,601 [DEBUG] test_metric in this batch is: tensor([120.4933, 116.2366, 114.7607, 118.3588])
+2024-11-15 17:08:55,601 [DEBUG] batch_count is: 136
+2024-11-15 17:09:23,127 [INFO] the batch metric is: tensor([0.8307, 0.8307, 0.8307, 0.8307])
+2024-11-15 17:09:23,130 [DEBUG] test_metric in this batch is: tensor([121.3240, 117.0673, 115.5914, 119.1896])
+2024-11-15 17:09:23,130 [DEBUG] batch_count is: 137
+2024-11-15 17:10:24,856 [INFO] the batch metric is: tensor([0.6923, 0.6923, 0.6923, 0.6923])
+2024-11-15 17:10:24,857 [DEBUG] test_metric in this batch is: tensor([122.0163, 117.7596, 116.2837, 119.8819])
+2024-11-15 17:10:24,857 [DEBUG] batch_count is: 138
+2024-11-15 17:11:11,074 [INFO] the batch metric is: tensor([0.9624, 0.9740, 0.6894, 0.9468])
+2024-11-15 17:11:11,074 [DEBUG] test_metric in this batch is: tensor([122.9787, 118.7336, 116.9731, 120.8287])
+2024-11-15 17:11:11,074 [DEBUG] batch_count is: 139
+2024-11-15 17:11:45,372 [INFO] the batch metric is: tensor([0.9997, 0.9997, 0.9997, 0.9997])
+2024-11-15 17:11:45,373 [DEBUG] test_metric in this batch is: tensor([123.9784, 119.7333, 117.9728, 121.8283])
+2024-11-15 17:11:45,373 [DEBUG] batch_count is: 140
+2024-11-15 17:12:43,905 [INFO] the batch metric is: tensor([0.9915, 0.9915, 0.9915, 0.9915])
+2024-11-15 17:12:43,906 [DEBUG] test_metric in this batch is: tensor([124.9699, 120.7248, 118.9643, 122.8199])
+2024-11-15 17:12:43,906 [DEBUG] batch_count is: 141
+2024-11-15 17:13:20,980 [INFO] the batch metric is: tensor([0.8564, 0.8564, 0.8564, 0.8564])
+2024-11-15 17:13:20,980 [DEBUG] test_metric in this batch is: tensor([125.8263, 121.5812, 119.8208, 123.6763])
+2024-11-15 17:13:20,980 [DEBUG] batch_count is: 142
+2024-11-15 17:13:48,094 [INFO] the batch metric is: tensor([0.9964, 0.9901, 0.9847, 0.9928])
+2024-11-15 17:13:48,095 [DEBUG] test_metric in this batch is: tensor([126.8227, 122.5714, 120.8055, 124.6691])
+2024-11-15 17:13:48,095 [DEBUG] batch_count is: 143
+2024-11-15 17:14:22,155 [INFO] the batch metric is: tensor([0.8652, 0.8090, 0.7228, 0.7536])
+2024-11-15 17:14:22,155 [DEBUG] test_metric in this batch is: tensor([127.6879, 123.3804, 121.5282, 125.4227])
+2024-11-15 17:14:22,156 [DEBUG] batch_count is: 144
+2024-11-15 17:14:44,239 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 17:15:13,970 [INFO] the batch metric is: tensor([0.9101, 0.9047, 0.8320, 0.8333])
+2024-11-15 17:15:13,970 [DEBUG] test_metric in this batch is: tensor([128.5980, 124.2850, 122.3603, 126.2560])
+2024-11-15 17:15:13,970 [DEBUG] batch_count is: 145
+2024-11-15 17:15:52,768 [INFO] the batch metric is: tensor([0.8324, 0.8324, 0.8324, 0.8324])
+2024-11-15 17:15:52,768 [DEBUG] test_metric in this batch is: tensor([129.4304, 125.1174, 123.1927, 127.0884])
+2024-11-15 17:15:52,768 [DEBUG] batch_count is: 146
+2024-11-15 17:16:15,457 [INFO] the batch metric is: tensor([0.1310, 0.1310, 0.1310, 0.1310])
+2024-11-15 17:16:15,458 [DEBUG] test_metric in this batch is: tensor([129.5614, 125.2484, 123.3236, 127.2194])
+2024-11-15 17:16:15,458 [DEBUG] batch_count is: 147
+2024-11-15 17:16:54,454 [INFO] the batch metric is: tensor([0.9812, 0.9812, 0.9812, 0.9812])
+2024-11-15 17:16:54,454 [DEBUG] test_metric in this batch is: tensor([130.5426, 126.2296, 124.3048, 128.2006])
+2024-11-15 17:16:54,454 [DEBUG] batch_count is: 148
+2024-11-15 17:17:44,063 [INFO] the batch metric is: tensor([0.9975, 0.9987, 0.9770, 0.9951])
+2024-11-15 17:17:44,064 [DEBUG] test_metric in this batch is: tensor([131.5400, 127.2283, 125.2818, 129.1957])
+2024-11-15 17:17:44,064 [DEBUG] batch_count is: 149
+2024-11-15 17:18:32,581 [INFO] the batch metric is: tensor([0.9885, 0.9885, 0.9885, 0.9885])
+2024-11-15 17:18:32,582 [DEBUG] test_metric in this batch is: tensor([132.5285, 128.2167, 126.2703, 130.1842])
+2024-11-15 17:18:32,582 [DEBUG] batch_count is: 150
+2024-11-15 17:19:15,707 [INFO] the batch metric is: tensor([0.9863, 0.9863, 0.9863, 0.9863])
+2024-11-15 17:19:15,708 [DEBUG] test_metric in this batch is: tensor([133.5148, 129.2030, 127.2566, 131.1705])
+2024-11-15 17:19:15,708 [DEBUG] batch_count is: 151
+2024-11-15 17:19:47,184 [INFO] the batch metric is: tensor([0.9788, 0.8752, 0.8639, 0.9581])
+2024-11-15 17:19:47,184 [DEBUG] test_metric in this batch is: tensor([134.4936, 130.0783, 128.1205, 132.1285])
+2024-11-15 17:19:47,184 [DEBUG] batch_count is: 152
+2024-11-15 17:20:38,074 [INFO] the batch metric is: tensor([0.8800, 0.8800, 0.8800, 0.8800])
+2024-11-15 17:20:38,074 [DEBUG] test_metric in this batch is: tensor([135.3736, 130.9582, 129.0004, 133.0085])
+2024-11-15 17:20:38,074 [DEBUG] batch_count is: 153
+2024-11-15 17:21:18,837 [INFO] the batch metric is: tensor([0.9571, 0.9497, 0.8711, 0.9215])
+2024-11-15 17:21:18,837 [DEBUG] test_metric in this batch is: tensor([136.3306, 131.9079, 129.8715, 133.9300])
+2024-11-15 17:21:18,837 [DEBUG] batch_count is: 154
+2024-11-15 17:21:54,889 [INFO] the batch metric is: tensor([0.9705, 0.9705, 0.9705, 0.9705])
+2024-11-15 17:21:54,889 [DEBUG] test_metric in this batch is: tensor([137.3012, 132.8785, 130.8420, 134.9006])
+2024-11-15 17:21:54,889 [DEBUG] batch_count is: 155
+2024-11-15 17:22:59,864 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:22:59,864 [DEBUG] test_metric in this batch is: tensor([138.3012, 133.8785, 131.8420, 135.9006])
+2024-11-15 17:22:59,864 [DEBUG] batch_count is: 156
+2024-11-15 17:23:41,600 [INFO] the batch metric is: tensor([0.9881, 0.5000, 0.9881, 0.9763])
+2024-11-15 17:23:41,601 [DEBUG] test_metric in this batch is: tensor([139.2893, 134.3785, 132.8301, 136.8769])
+2024-11-15 17:23:41,601 [DEBUG] batch_count is: 157
+2024-11-15 17:24:14,880 [INFO] the batch metric is: tensor([0.9428, 0.6372, 0.6071, 0.8894])
+2024-11-15 17:24:14,881 [DEBUG] test_metric in this batch is: tensor([140.2321, 135.0157, 133.4373, 137.7663])
+2024-11-15 17:24:14,881 [DEBUG] batch_count is: 158
+2024-11-15 17:24:51,299 [INFO] the batch metric is: tensor([0.9520, 0.4863, 0.9602, 0.9400])
+2024-11-15 17:24:51,302 [DEBUG] test_metric in this batch is: tensor([141.1840, 135.5019, 134.3975, 138.7063])
+2024-11-15 17:24:51,302 [DEBUG] batch_count is: 159
+2024-11-15 17:25:13,096 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 17:25:44,636 [INFO] the batch metric is: tensor([0.9842, 0.9522, 0.9477, 0.9761])
+2024-11-15 17:25:44,637 [DEBUG] test_metric in this batch is: tensor([142.1683, 136.4541, 135.3452, 139.6823])
+2024-11-15 17:25:44,637 [DEBUG] batch_count is: 160
+2024-11-15 17:26:17,306 [INFO] the batch metric is: tensor([0.9744, 0.4889, 0.4872, 0.9710])
+2024-11-15 17:26:17,306 [DEBUG] test_metric in this batch is: tensor([143.1427, 136.9431, 135.8324, 140.6534])
+2024-11-15 17:26:17,306 [DEBUG] batch_count is: 161
+2024-11-15 17:27:01,339 [INFO] the batch metric is: tensor([0.9257, 0.9257, 0.9257, 0.9257])
+2024-11-15 17:27:01,339 [DEBUG] test_metric in this batch is: tensor([144.0684, 137.8688, 136.7581, 141.5791])
+2024-11-15 17:27:01,339 [DEBUG] batch_count is: 162
+2024-11-15 17:27:30,705 [INFO] the batch metric is: tensor([0.9453, 0.9444, 0.9148, 0.9201])
+2024-11-15 17:27:30,706 [DEBUG] test_metric in this batch is: tensor([145.0137, 138.8132, 137.6730, 142.4992])
+2024-11-15 17:27:30,706 [DEBUG] batch_count is: 163
+2024-11-15 17:28:35,337 [INFO] the batch metric is: tensor([0.9787, 0.9787, 0.9787, 0.9787])
+2024-11-15 17:28:35,338 [DEBUG] test_metric in this batch is: tensor([145.9924, 139.7919, 138.6517, 143.4779])
+2024-11-15 17:28:35,338 [DEBUG] batch_count is: 164
+2024-11-15 17:29:02,292 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:29:02,292 [DEBUG] test_metric in this batch is: tensor([146.9924, 140.7919, 139.6517, 144.4779])
+2024-11-15 17:29:02,292 [DEBUG] batch_count is: 165
+2024-11-15 17:29:27,764 [INFO] the batch metric is: tensor([0.8345, 0.5657, 0.7271, 0.7053])
+2024-11-15 17:29:27,764 [DEBUG] test_metric in this batch is: tensor([147.8269, 141.3576, 140.3788, 145.1833])
+2024-11-15 17:29:27,764 [DEBUG] batch_count is: 166
+2024-11-15 17:29:49,859 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 17:30:18,442 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:30:18,443 [DEBUG] test_metric in this batch is: tensor([148.8269, 142.3576, 141.3788, 146.1833])
+2024-11-15 17:30:18,443 [DEBUG] batch_count is: 167
+2024-11-15 17:30:39,974 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 17:31:34,253 [INFO] the batch metric is: tensor([0.9959, 0.9959, 0.9959, 0.9959])
+2024-11-15 17:31:34,255 [DEBUG] test_metric in this batch is: tensor([149.8228, 143.3535, 142.3746, 147.1791])
+2024-11-15 17:31:34,255 [DEBUG] batch_count is: 168
+2024-11-15 17:32:13,673 [INFO] the batch metric is: tensor([0.9856, 0.9831, 0.9688, 0.9719])
+2024-11-15 17:32:13,673 [DEBUG] test_metric in this batch is: tensor([150.8084, 144.3366, 143.3434, 148.1510])
+2024-11-15 17:32:13,673 [DEBUG] batch_count is: 169
+2024-11-15 17:32:58,775 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:32:58,775 [DEBUG] test_metric in this batch is: tensor([151.8084, 145.3366, 144.3434, 149.1510])
+2024-11-15 17:32:58,775 [DEBUG] batch_count is: 170
+2024-11-15 17:33:51,881 [INFO] the batch metric is: tensor([0.9265, 0.9265, 0.9265, 0.9265])
+2024-11-15 17:33:51,881 [DEBUG] test_metric in this batch is: tensor([152.7349, 146.2631, 145.2699, 150.0775])
+2024-11-15 17:33:51,881 [DEBUG] batch_count is: 171
+2024-11-15 17:34:13,796 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 17:35:14,241 [INFO] the batch metric is: tensor([0.9858, 0.9858, 0.9858, 0.9858])
+2024-11-15 17:35:14,241 [DEBUG] test_metric in this batch is: tensor([153.7207, 147.2488, 146.2556, 151.0632])
+2024-11-15 17:35:14,241 [DEBUG] batch_count is: 172
+2024-11-15 17:35:45,353 [INFO] the batch metric is: tensor([0.9957, 0.9099, 0.8602, 0.9919])
+2024-11-15 17:35:45,353 [DEBUG] test_metric in this batch is: tensor([154.7164, 148.1587, 147.1159, 152.0551])
+2024-11-15 17:35:45,354 [DEBUG] batch_count is: 173
+2024-11-15 17:36:23,572 [INFO] the batch metric is: tensor([0.9486, 0.9532, 0.9306, 0.9277])
+2024-11-15 17:36:23,572 [DEBUG] test_metric in this batch is: tensor([155.6650, 149.1120, 148.0465, 152.9828])
+2024-11-15 17:36:23,573 [DEBUG] batch_count is: 174
+2024-11-15 17:36:48,325 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:36:48,326 [DEBUG] test_metric in this batch is: tensor([156.6650, 150.1120, 149.0465, 153.9828])
+2024-11-15 17:36:48,326 [DEBUG] batch_count is: 175
+2024-11-15 17:37:32,925 [INFO] the batch metric is: tensor([0.9958, 0.9958, 0.9958, 0.9958])
+2024-11-15 17:37:32,926 [DEBUG] test_metric in this batch is: tensor([157.6608, 151.1077, 150.0423, 154.9786])
+2024-11-15 17:37:32,926 [DEBUG] batch_count is: 176
+2024-11-15 17:38:30,420 [INFO] the batch metric is: tensor([0.9944, 0.9944, 0.9944, 0.9944])
+2024-11-15 17:38:30,421 [DEBUG] test_metric in this batch is: tensor([158.6551, 152.1021, 151.0366, 155.9730])
+2024-11-15 17:38:30,421 [DEBUG] batch_count is: 177
+2024-11-15 17:38:53,287 [INFO] the batch metric is: tensor([0.1794, 0.5000, 0.1794, 0.0322])
+2024-11-15 17:38:53,287 [DEBUG] test_metric in this batch is: tensor([158.8345, 152.6021, 151.2160, 156.0051])
+2024-11-15 17:38:53,287 [DEBUG] batch_count is: 178
+2024-11-15 17:39:25,936 [INFO] the batch metric is: tensor([0.6174, 0.7419, 0.4437, 0.4631])
+2024-11-15 17:39:25,936 [DEBUG] test_metric in this batch is: tensor([159.4519, 153.3440, 151.6597, 156.4682])
+2024-11-15 17:39:25,936 [DEBUG] batch_count is: 179
+2024-11-15 17:39:54,744 [INFO] the batch metric is: tensor([0.5690, 0.7472, 0.7444, 0.5673])
+2024-11-15 17:39:54,744 [DEBUG] test_metric in this batch is: tensor([160.0209, 154.0912, 152.4041, 157.0355])
+2024-11-15 17:39:54,744 [DEBUG] batch_count is: 180
+2024-11-15 17:40:31,632 [INFO] the batch metric is: tensor([0.5616, 0.5616, 0.5616, 0.5616])
+2024-11-15 17:40:31,634 [DEBUG] test_metric in this batch is: tensor([160.5825, 154.6528, 152.9656, 157.5971])
+2024-11-15 17:40:31,634 [DEBUG] batch_count is: 181
+2024-11-15 17:40:53,715 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 17:41:26,148 [INFO] the batch metric is: tensor([0.9454, 0.8012, 0.7714, 0.8940])
+2024-11-15 17:41:26,148 [DEBUG] test_metric in this batch is: tensor([161.5279, 155.4539, 153.7370, 158.4911])
+2024-11-15 17:41:26,148 [DEBUG] batch_count is: 182
+2024-11-15 17:41:55,334 [INFO] the batch metric is: tensor([0.9999, 0.9987, 0.9987, 0.9998])
+2024-11-15 17:41:55,334 [DEBUG] test_metric in this batch is: tensor([162.5278, 156.4526, 154.7357, 159.4909])
+2024-11-15 17:41:55,334 [DEBUG] batch_count is: 183
+2024-11-15 17:42:17,358 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 17:42:58,185 [INFO] the batch metric is: tensor([0.6448, 0.6448, 0.6448, 0.6448])
+2024-11-15 17:42:58,187 [DEBUG] test_metric in this batch is: tensor([163.1726, 157.0974, 155.3805, 160.1357])
+2024-11-15 17:42:58,187 [DEBUG] batch_count is: 184
+2024-11-15 17:43:47,810 [INFO] the batch metric is: tensor([0.9896, 0.9896, 0.9896, 0.9896])
+2024-11-15 17:43:47,810 [DEBUG] test_metric in this batch is: tensor([164.1622, 158.0870, 156.3701, 161.1253])
+2024-11-15 17:43:47,810 [DEBUG] batch_count is: 185
+2024-11-15 17:44:12,361 [INFO] the batch metric is: tensor([0.9447, 0.5000, 0.9447, 0.8924])
+2024-11-15 17:44:12,362 [DEBUG] test_metric in this batch is: tensor([165.1069, 158.5870, 157.3148, 162.0177])
+2024-11-15 17:44:12,362 [DEBUG] batch_count is: 186
+2024-11-15 17:44:51,222 [INFO] the batch metric is: tensor([0.9779, 0.9779, 0.9779, 0.9779])
+2024-11-15 17:44:51,223 [DEBUG] test_metric in this batch is: tensor([166.0847, 159.5649, 158.2927, 162.9956])
+2024-11-15 17:44:51,223 [DEBUG] batch_count is: 187
+2024-11-15 17:45:23,426 [INFO] the batch metric is: tensor([0.5564, 0.7497, 0.3378, 0.4849])
+2024-11-15 17:45:23,426 [DEBUG] test_metric in this batch is: tensor([166.6412, 160.3146, 158.6304, 163.4805])
+2024-11-15 17:45:23,426 [DEBUG] batch_count is: 188
+2024-11-15 17:45:55,864 [INFO] the batch metric is: tensor([0.9995, 0.9995, 0.9995, 0.9995])
+2024-11-15 17:45:55,865 [DEBUG] test_metric in this batch is: tensor([167.6406, 161.3141, 159.6299, 164.4800])
+2024-11-15 17:45:55,865 [DEBUG] batch_count is: 189
+2024-11-15 17:46:17,847 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 17:46:51,915 [INFO] the batch metric is: tensor([0.6147, 0.6147, 0.6147, 0.6147])
+2024-11-15 17:46:51,915 [DEBUG] test_metric in this batch is: tensor([168.2554, 161.9288, 160.2446, 165.0947])
+2024-11-15 17:46:51,915 [DEBUG] batch_count is: 190
+2024-11-15 17:47:34,850 [INFO] the batch metric is: tensor([0.9994, 0.9983, 0.9971, 0.9988])
+2024-11-15 17:47:34,851 [DEBUG] test_metric in this batch is: tensor([169.2548, 162.9272, 161.2418, 166.0935])
+2024-11-15 17:47:34,854 [DEBUG] batch_count is: 191
+2024-11-15 17:48:03,969 [INFO] the batch metric is: tensor([0.8556, 0.5000, 0.8556, 0.7320])
+2024-11-15 17:48:03,969 [DEBUG] test_metric in this batch is: tensor([170.1103, 163.4272, 162.0973, 166.8255])
+2024-11-15 17:48:03,969 [DEBUG] batch_count is: 192
+2024-11-15 17:49:07,673 [INFO] the batch metric is: tensor([0.8741, 0.8741, 0.8741, 0.8741])
+2024-11-15 17:49:07,674 [DEBUG] test_metric in this batch is: tensor([170.9844, 164.3012, 162.9714, 167.6996])
+2024-11-15 17:49:07,674 [DEBUG] batch_count is: 193
+2024-11-15 17:49:30,323 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:49:30,324 [DEBUG] test_metric in this batch is: tensor([171.9844, 165.3012, 163.9714, 168.6996])
+2024-11-15 17:49:30,324 [DEBUG] batch_count is: 194
+2024-11-15 17:50:01,393 [INFO] the batch metric is: tensor([0.6975, 0.8249, 0.4801, 0.6036])
+2024-11-15 17:50:01,393 [DEBUG] test_metric in this batch is: tensor([172.6819, 166.1261, 164.4515, 169.3031])
+2024-11-15 17:50:01,393 [DEBUG] batch_count is: 195
+2024-11-15 17:50:58,845 [INFO] the batch metric is: tensor([1.0000, 1.0000, 1.0000, 1.0000])
+2024-11-15 17:50:58,846 [DEBUG] test_metric in this batch is: tensor([173.6818, 167.1261, 165.4515, 170.3031])
+2024-11-15 17:50:58,846 [DEBUG] batch_count is: 196
+2024-11-15 17:51:46,007 [INFO] the batch metric is: tensor([0.5789, 0.5789, 0.5789, 0.5789])
+2024-11-15 17:51:46,008 [DEBUG] test_metric in this batch is: tensor([174.2607, 167.7049, 166.0303, 170.8819])
+2024-11-15 17:51:46,008 [DEBUG] batch_count is: 197
+2024-11-15 17:52:15,848 [INFO] the batch metric is: tensor([0.7601, 0.8577, 0.5554, 0.6652])
+2024-11-15 17:52:15,848 [DEBUG] test_metric in this batch is: tensor([175.0208, 168.5626, 166.5857, 171.5471])
+2024-11-15 17:52:15,848 [DEBUG] batch_count is: 198
+2024-11-15 17:53:05,746 [INFO] the batch metric is: tensor([0.9830, 0.9908, 0.9008, 0.9690])
+2024-11-15 17:53:05,747 [DEBUG] test_metric in this batch is: tensor([176.0037, 169.5534, 167.4865, 172.5162])
+2024-11-15 17:53:05,747 [DEBUG] batch_count is: 199
+2024-11-15 17:53:36,395 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:53:36,395 [DEBUG] test_metric in this batch is: tensor([177.0037, 170.5534, 168.4865, 173.5162])
+2024-11-15 17:53:36,395 [DEBUG] batch_count is: 200
+2024-11-15 17:54:24,695 [INFO] the batch metric is: tensor([0.9205, 0.9460, 0.8295, 0.8597])
+2024-11-15 17:54:24,696 [DEBUG] test_metric in this batch is: tensor([177.9242, 171.4994, 169.3161, 174.3759])
+2024-11-15 17:54:24,696 [DEBUG] batch_count is: 201
+2024-11-15 17:54:49,380 [INFO] the batch metric is: tensor([0.9642, 0.9754, 0.9176, 0.9326])
+2024-11-15 17:54:49,380 [DEBUG] test_metric in this batch is: tensor([178.8884, 172.4748, 170.2336, 175.3085])
+2024-11-15 17:54:49,380 [DEBUG] batch_count is: 202
+2024-11-15 17:55:23,312 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:55:23,312 [DEBUG] test_metric in this batch is: tensor([179.8884, 173.4748, 171.2336, 176.3085])
+2024-11-15 17:55:23,312 [DEBUG] batch_count is: 203
+2024-11-15 17:55:57,067 [INFO] the batch metric is: tensor([0.8075, 0.6403, 0.5468, 0.6627])
+2024-11-15 17:55:57,067 [DEBUG] test_metric in this batch is: tensor([180.6960, 174.1151, 171.7804, 176.9712])
+2024-11-15 17:55:57,067 [DEBUG] batch_count is: 204
+2024-11-15 17:56:35,011 [INFO] the batch metric is: tensor([0.9159, 0.9260, 0.9219, 0.9101])
+2024-11-15 17:56:35,011 [DEBUG] test_metric in this batch is: tensor([181.6119, 175.0411, 172.7023, 177.8812])
+2024-11-15 17:56:35,012 [DEBUG] batch_count is: 205
+2024-11-15 17:56:56,958 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 17:56:56,958 [DEBUG] test_metric in this batch is: tensor([182.6119, 176.0411, 173.7023, 178.8812])
+2024-11-15 17:56:56,958 [DEBUG] batch_count is: 206
+2024-11-15 17:57:44,886 [INFO] the batch metric is: tensor([0.4938, 0.4938, 0.4938, 0.4938])
+2024-11-15 17:57:44,886 [DEBUG] test_metric in this batch is: tensor([183.1057, 176.5349, 174.1961, 179.3750])
+2024-11-15 17:57:44,886 [DEBUG] batch_count is: 207
+2024-11-15 17:58:14,820 [INFO] the batch metric is: tensor([0.8699, 0.8699, 0.8699, 0.8699])
+2024-11-15 17:58:14,820 [DEBUG] test_metric in this batch is: tensor([183.9756, 177.4048, 175.0660, 180.2449])
+2024-11-15 17:58:14,820 [DEBUG] batch_count is: 208
+2024-11-15 17:58:36,737 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 17:59:38,223 [INFO] the batch metric is: tensor([0.9994, 0.9994, 0.9994, 0.9994])
+2024-11-15 17:59:38,224 [DEBUG] test_metric in this batch is: tensor([184.9750, 178.4042, 176.0654, 181.2443])
+2024-11-15 17:59:38,224 [DEBUG] batch_count is: 209
+2024-11-15 18:00:18,813 [INFO] the batch metric is: tensor([0.9871, 0.9921, 0.9598, 0.9750])
+2024-11-15 18:00:18,814 [DEBUG] test_metric in this batch is: tensor([185.9621, 179.3962, 177.0252, 182.2194])
+2024-11-15 18:00:18,814 [DEBUG] batch_count is: 210
+2024-11-15 18:00:45,464 [INFO] the batch metric is: tensor([0.9842, 0.9406, 0.9316, 0.9686])
+2024-11-15 18:00:45,465 [DEBUG] test_metric in this batch is: tensor([186.9462, 180.3368, 177.9568, 183.1880])
+2024-11-15 18:00:45,465 [DEBUG] batch_count is: 211
+2024-11-15 18:01:24,037 [INFO] the batch metric is: tensor([0.9014, 0.9014, 0.9014, 0.9014])
+2024-11-15 18:01:24,037 [DEBUG] test_metric in this batch is: tensor([187.8477, 181.2383, 178.8583, 184.0894])
+2024-11-15 18:01:24,037 [DEBUG] batch_count is: 212
+2024-11-15 18:02:08,673 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:02:08,673 [DEBUG] test_metric in this batch is: tensor([188.8477, 182.2383, 179.8583, 185.0894])
+2024-11-15 18:02:08,673 [DEBUG] batch_count is: 213
+2024-11-15 18:02:49,517 [INFO] the batch metric is: tensor([0.9939, 0.9969, 0.8072, 0.9901])
+2024-11-15 18:02:49,517 [DEBUG] test_metric in this batch is: tensor([189.8416, 183.2352, 180.6655, 186.0795])
+2024-11-15 18:02:49,517 [DEBUG] batch_count is: 214
+2024-11-15 18:03:43,008 [INFO] the batch metric is: tensor([0.8827, 0.8827, 0.8827, 0.8827])
+2024-11-15 18:03:43,008 [DEBUG] test_metric in this batch is: tensor([190.7243, 184.1178, 181.5481, 186.9622])
+2024-11-15 18:03:43,008 [DEBUG] batch_count is: 215
+2024-11-15 18:04:06,235 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:04:06,235 [DEBUG] test_metric in this batch is: tensor([191.7243, 185.1178, 182.5481, 187.9622])
+2024-11-15 18:04:06,235 [DEBUG] batch_count is: 216
+2024-11-15 18:05:02,184 [INFO] the batch metric is: tensor([0.9867, 0.9867, 0.9867, 0.9867])
+2024-11-15 18:05:02,184 [DEBUG] test_metric in this batch is: tensor([192.7110, 186.1046, 183.5348, 188.9489])
+2024-11-15 18:05:02,184 [DEBUG] batch_count is: 217
+2024-11-15 18:05:43,125 [INFO] the batch metric is: tensor([0.9994, 0.9995, 0.9985, 0.9987])
+2024-11-15 18:05:43,125 [DEBUG] test_metric in this batch is: tensor([193.7103, 187.1041, 184.5334, 189.9476])
+2024-11-15 18:05:43,125 [DEBUG] batch_count is: 218
+2024-11-15 18:06:16,837 [INFO] the batch metric is: tensor([0.8593, 0.8593, 0.8593, 0.8593])
+2024-11-15 18:06:16,838 [DEBUG] test_metric in this batch is: tensor([194.5696, 187.9634, 185.3926, 190.8069])
+2024-11-15 18:06:16,838 [DEBUG] batch_count is: 219
+2024-11-15 18:07:07,276 [INFO] the batch metric is: tensor([0.9999, 0.9999, 0.9999, 0.9999])
+2024-11-15 18:07:07,277 [DEBUG] test_metric in this batch is: tensor([195.5695, 188.9633, 186.3926, 191.8068])
+2024-11-15 18:07:07,277 [DEBUG] batch_count is: 220
+2024-11-15 18:07:52,846 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:07:52,846 [DEBUG] test_metric in this batch is: tensor([196.5695, 189.9633, 187.3926, 192.8068])
+2024-11-15 18:07:52,846 [DEBUG] batch_count is: 221
+2024-11-15 18:08:19,321 [INFO] the batch metric is: tensor([0.9097, 0.9496, 0.7163, 0.8615])
+2024-11-15 18:08:19,321 [DEBUG] test_metric in this batch is: tensor([197.4792, 190.9129, 188.1088, 193.6684])
+2024-11-15 18:08:19,321 [DEBUG] batch_count is: 222
+2024-11-15 18:09:15,480 [INFO] the batch metric is: tensor([0.2945, 0.2945, 0.2945, 0.2945])
+2024-11-15 18:09:15,480 [DEBUG] test_metric in this batch is: tensor([197.7737, 191.2075, 188.4033, 193.9629])
+2024-11-15 18:09:15,480 [DEBUG] batch_count is: 223
+2024-11-15 18:10:08,903 [INFO] the batch metric is: tensor([0.7730, 0.7730, 0.7730, 0.7730])
+2024-11-15 18:10:08,903 [DEBUG] test_metric in this batch is: tensor([198.5467, 191.9805, 189.1763, 194.7359])
+2024-11-15 18:10:08,903 [DEBUG] batch_count is: 224
+2024-11-15 18:11:12,969 [INFO] the batch metric is: tensor([0.9527, 0.9527, 0.9527, 0.9527])
+2024-11-15 18:11:12,970 [DEBUG] test_metric in this batch is: tensor([199.4994, 192.9332, 190.1290, 195.6886])
+2024-11-15 18:11:12,970 [DEBUG] batch_count is: 225
+2024-11-15 18:12:03,619 [INFO] the batch metric is: tensor([0.9916, 0.9916, 0.9916, 0.9916])
+2024-11-15 18:12:03,619 [DEBUG] test_metric in this batch is: tensor([200.4911, 193.9248, 191.1207, 196.6802])
+2024-11-15 18:12:03,619 [DEBUG] batch_count is: 226
+2024-11-15 18:12:25,530 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 18:13:02,196 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:13:02,197 [DEBUG] test_metric in this batch is: tensor([201.4911, 194.9248, 192.1207, 197.6802])
+2024-11-15 18:13:02,197 [DEBUG] batch_count is: 227
+2024-11-15 18:13:24,279 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 18:14:14,138 [INFO] the batch metric is: tensor([0.9909, 0.9952, 0.9183, 0.9832])
+2024-11-15 18:14:14,139 [DEBUG] test_metric in this batch is: tensor([202.4820, 195.9200, 193.0389, 198.6634])
+2024-11-15 18:14:14,139 [DEBUG] batch_count is: 228
+2024-11-15 18:14:46,066 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:14:46,066 [DEBUG] test_metric in this batch is: tensor([203.4820, 196.9200, 194.0389, 199.6634])
+2024-11-15 18:14:46,066 [DEBUG] batch_count is: 229
+2024-11-15 18:15:33,904 [INFO] the batch metric is: tensor([0.8968, 0.8968, 0.8968, 0.8968])
+2024-11-15 18:15:33,906 [DEBUG] test_metric in this batch is: tensor([204.3787, 197.8168, 194.9357, 200.5602])
+2024-11-15 18:15:33,907 [DEBUG] batch_count is: 230
+2024-11-15 18:16:06,676 [INFO] the batch metric is: tensor([0.7592, 0.8254, 0.6304, 0.6720])
+2024-11-15 18:16:06,676 [DEBUG] test_metric in this batch is: tensor([205.1380, 198.6421, 195.5661, 201.2322])
+2024-11-15 18:16:06,676 [DEBUG] batch_count is: 231
+2024-11-15 18:16:31,579 [INFO] the batch metric is: tensor([0.9608, 0.9318, 0.6883, 0.9428])
+2024-11-15 18:16:31,579 [DEBUG] test_metric in this batch is: tensor([206.0988, 199.5739, 196.2544, 202.1750])
+2024-11-15 18:16:31,579 [DEBUG] batch_count is: 232
+2024-11-15 18:17:18,865 [INFO] the batch metric is: tensor([0.9910, 0.9910, 0.9910, 0.9910])
+2024-11-15 18:17:18,866 [DEBUG] test_metric in this batch is: tensor([207.0897, 200.5649, 197.2454, 203.1660])
+2024-11-15 18:17:18,866 [DEBUG] batch_count is: 233
+2024-11-15 18:18:02,525 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:18:02,525 [DEBUG] test_metric in this batch is: tensor([208.0897, 201.5649, 198.2454, 204.1660])
+2024-11-15 18:18:02,525 [DEBUG] batch_count is: 234
+2024-11-15 18:18:28,211 [INFO] the batch metric is: tensor([0.8705, 0.3974, 0.5304, 0.7581])
+2024-11-15 18:18:28,211 [DEBUG] test_metric in this batch is: tensor([208.9603, 201.9624, 198.7758, 204.9240])
+2024-11-15 18:18:28,211 [DEBUG] batch_count is: 235
+2024-11-15 18:19:23,367 [INFO] the batch metric is: tensor([0.9945, 0.4987, 0.9974, 0.9945])
+2024-11-15 18:19:23,367 [DEBUG] test_metric in this batch is: tensor([209.9548, 202.4610, 199.7731, 205.9185])
+2024-11-15 18:19:23,368 [DEBUG] batch_count is: 236
+2024-11-15 18:20:20,329 [INFO] the batch metric is: tensor([0.9311, 0.9311, 0.9311, 0.9311])
+2024-11-15 18:20:20,332 [DEBUG] test_metric in this batch is: tensor([210.8859, 203.3922, 200.7043, 206.8497])
+2024-11-15 18:20:20,332 [DEBUG] batch_count is: 237
+2024-11-15 18:20:57,495 [INFO] the batch metric is: tensor([0.9313, 0.9313, 0.9313, 0.9313])
+2024-11-15 18:20:57,495 [DEBUG] test_metric in this batch is: tensor([211.8172, 204.3235, 201.6356, 207.7810])
+2024-11-15 18:20:57,495 [DEBUG] batch_count is: 238
+2024-11-15 18:21:40,398 [INFO] the batch metric is: tensor([0.9312, 0.9398, 0.8584, 0.8741])
+2024-11-15 18:21:40,398 [DEBUG] test_metric in this batch is: tensor([212.7484, 205.2633, 202.4940, 208.6551])
+2024-11-15 18:21:40,398 [DEBUG] batch_count is: 239
+2024-11-15 18:22:26,850 [INFO] the batch metric is: tensor([0.9736, 0.9736, 0.9736, 0.9736])
+2024-11-15 18:22:26,850 [DEBUG] test_metric in this batch is: tensor([213.7220, 206.2368, 203.4675, 209.6286])
+2024-11-15 18:22:26,850 [DEBUG] batch_count is: 240
+2024-11-15 18:22:53,027 [INFO] the batch metric is: tensor([0.6817, 0.6817, 0.6817, 0.6817])
+2024-11-15 18:22:53,028 [DEBUG] test_metric in this batch is: tensor([214.4037, 206.9186, 204.1493, 210.3103])
+2024-11-15 18:22:53,028 [DEBUG] batch_count is: 241
+2024-11-15 18:23:14,948 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 18:23:36,845 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 18:24:13,929 [INFO] the batch metric is: tensor([0.6270, 0.6270, 0.6270, 0.6270])
+2024-11-15 18:24:13,930 [DEBUG] test_metric in this batch is: tensor([215.0307, 207.5456, 204.7763, 210.9374])
+2024-11-15 18:24:13,930 [DEBUG] batch_count is: 242
+2024-11-15 18:24:49,357 [INFO] the batch metric is: tensor([0.9465, 0.8900, 0.8598, 0.9000])
+2024-11-15 18:24:49,358 [DEBUG] test_metric in this batch is: tensor([215.9772, 208.4356, 205.6361, 211.8374])
+2024-11-15 18:24:49,361 [DEBUG] batch_count is: 243
+2024-11-15 18:25:36,741 [INFO] the batch metric is: tensor([0.9455, 0.9455, 0.9455, 0.9455])
+2024-11-15 18:25:36,745 [DEBUG] test_metric in this batch is: tensor([216.9227, 209.3812, 206.5817, 212.7830])
+2024-11-15 18:25:36,745 [DEBUG] batch_count is: 244
+2024-11-15 18:26:03,760 [INFO] the batch metric is: tensor([0.9864, 0.9864, 0.9864, 0.9864])
+2024-11-15 18:26:03,761 [DEBUG] test_metric in this batch is: tensor([217.9091, 210.3676, 207.5681, 213.7693])
+2024-11-15 18:26:03,761 [DEBUG] batch_count is: 245
+2024-11-15 18:27:06,383 [INFO] the batch metric is: tensor([0.9947, 0.9947, 0.9947, 0.9947])
+2024-11-15 18:27:06,383 [DEBUG] test_metric in this batch is: tensor([218.9039, 211.3623, 208.5628, 214.7641])
+2024-11-15 18:27:06,383 [DEBUG] batch_count is: 246
+2024-11-15 18:27:58,055 [INFO] the batch metric is: tensor([0.8870, 0.8870, 0.8870, 0.8870])
+2024-11-15 18:27:58,056 [DEBUG] test_metric in this batch is: tensor([219.7909, 212.2493, 209.4498, 215.6511])
+2024-11-15 18:27:58,056 [DEBUG] batch_count is: 247
+2024-11-15 18:28:21,030 [INFO] the batch metric is: tensor([0.9852, 0.9852, 0.9852, 0.9852])
+2024-11-15 18:28:21,031 [DEBUG] test_metric in this batch is: tensor([220.7760, 213.2345, 210.4350, 216.6362])
+2024-11-15 18:28:21,031 [DEBUG] batch_count is: 248
+2024-11-15 18:28:52,775 [INFO] the batch metric is: tensor([0.9908, 0.9908, 0.9908, 0.9908])
+2024-11-15 18:28:52,775 [DEBUG] test_metric in this batch is: tensor([221.7668, 214.2252, 211.4257, 217.6270])
+2024-11-15 18:28:52,776 [DEBUG] batch_count is: 249
+2024-11-15 18:29:22,373 [INFO] the batch metric is: tensor([0.9192, 0.8523, 0.8022, 0.8465])
+2024-11-15 18:29:22,373 [DEBUG] test_metric in this batch is: tensor([222.6860, 215.0775, 212.2279, 218.4735])
+2024-11-15 18:29:22,373 [DEBUG] batch_count is: 250
+2024-11-15 18:30:01,143 [INFO] the batch metric is: tensor([0.7837, 0.8790, 0.5437, 0.7124])
+2024-11-15 18:30:01,144 [DEBUG] test_metric in this batch is: tensor([223.4697, 215.9565, 212.7717, 219.1859])
+2024-11-15 18:30:01,144 [DEBUG] batch_count is: 251
+2024-11-15 18:30:35,325 [INFO] the batch metric is: tensor([0.8161, 0.8161, 0.8161, 0.8161])
+2024-11-15 18:30:35,325 [DEBUG] test_metric in this batch is: tensor([224.2858, 216.7726, 213.5878, 220.0020])
+2024-11-15 18:30:35,325 [DEBUG] batch_count is: 252
+2024-11-15 18:31:00,186 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:31:00,187 [DEBUG] test_metric in this batch is: tensor([225.2858, 217.7726, 214.5878, 221.0020])
+2024-11-15 18:31:00,187 [DEBUG] batch_count is: 253
+2024-11-15 18:31:38,097 [INFO] the batch metric is: tensor([0.9585, 0.5000, 0.9585, 0.9187])
+2024-11-15 18:31:38,098 [DEBUG] test_metric in this batch is: tensor([226.2443, 218.2726, 215.5463, 221.9207])
+2024-11-15 18:31:38,098 [DEBUG] batch_count is: 254
+2024-11-15 18:32:21,158 [INFO] the batch metric is: tensor([0.7019, 0.7019, 0.7019, 0.7019])
+2024-11-15 18:32:21,158 [DEBUG] test_metric in this batch is: tensor([226.9462, 218.9745, 216.2482, 222.6226])
+2024-11-15 18:32:21,158 [DEBUG] batch_count is: 255
+2024-11-15 18:33:09,604 [INFO] the batch metric is: tensor([0.9883, 0.9883, 0.9883, 0.9883])
+2024-11-15 18:33:09,604 [DEBUG] test_metric in this batch is: tensor([227.9345, 219.9628, 217.2364, 223.6109])
+2024-11-15 18:33:09,604 [DEBUG] batch_count is: 256
+2024-11-15 18:33:31,242 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 18:34:10,211 [INFO] the batch metric is: tensor([0.9881, 0.9578, 0.9510, 0.9763])
+2024-11-15 18:34:10,212 [DEBUG] test_metric in this batch is: tensor([228.9225, 220.9206, 218.1874, 224.5872])
+2024-11-15 18:34:10,212 [DEBUG] batch_count is: 257
+2024-11-15 18:34:48,270 [INFO] the batch metric is: tensor([0.0506, 0.0506, 0.0506, 0.0506])
+2024-11-15 18:34:48,270 [DEBUG] test_metric in this batch is: tensor([228.9732, 220.9712, 218.2380, 224.6378])
+2024-11-15 18:34:48,270 [DEBUG] batch_count is: 258
+2024-11-15 18:35:21,072 [INFO] the batch metric is: tensor([0.9331, 0.9296, 0.8731, 0.8740])
+2024-11-15 18:35:21,073 [DEBUG] test_metric in this batch is: tensor([229.9063, 221.9008, 219.1111, 225.5118])
+2024-11-15 18:35:21,073 [DEBUG] batch_count is: 259
+2024-11-15 18:36:07,901 [INFO] the batch metric is: tensor([0.9716, 0.9716, 0.9716, 0.9716])
+2024-11-15 18:36:07,901 [DEBUG] test_metric in this batch is: tensor([230.8778, 222.8723, 220.0827, 226.4834])
+2024-11-15 18:36:07,901 [DEBUG] batch_count is: 260
+2024-11-15 18:36:49,836 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:36:49,837 [DEBUG] test_metric in this batch is: tensor([231.8778, 223.8723, 221.0827, 227.4834])
+2024-11-15 18:36:49,837 [DEBUG] batch_count is: 261
+2024-11-15 18:37:40,814 [INFO] the batch metric is: tensor([0.9996, 0.9996, 0.9996, 0.9996])
+2024-11-15 18:37:40,815 [DEBUG] test_metric in this batch is: tensor([232.8775, 224.8719, 222.0823, 228.4830])
+2024-11-15 18:37:40,815 [DEBUG] batch_count is: 262
+2024-11-15 18:38:23,124 [INFO] the batch metric is: tensor([0.6593, 0.6593, 0.6593, 0.6593])
+2024-11-15 18:38:23,125 [DEBUG] test_metric in this batch is: tensor([233.5368, 225.5313, 222.7417, 229.1424])
+2024-11-15 18:38:23,125 [DEBUG] batch_count is: 263
+2024-11-15 18:39:00,092 [INFO] the batch metric is: tensor([0.9990, 0.9990, 0.9990, 0.9990])
+2024-11-15 18:39:00,093 [DEBUG] test_metric in this batch is: tensor([234.5358, 226.5303, 223.7407, 230.1414])
+2024-11-15 18:39:00,093 [DEBUG] batch_count is: 264
+2024-11-15 18:39:35,913 [INFO] the batch metric is: tensor([0.9388, 0.9388, 0.9388, 0.9388])
+2024-11-15 18:39:35,913 [DEBUG] test_metric in this batch is: tensor([235.4746, 227.4691, 224.6795, 231.0802])
+2024-11-15 18:39:35,913 [DEBUG] batch_count is: 265
+2024-11-15 18:40:02,373 [INFO] the batch metric is: tensor([0.9775, 0.9775, 0.9775, 0.9775])
+2024-11-15 18:40:02,374 [DEBUG] test_metric in this batch is: tensor([236.4521, 228.4466, 225.6570, 232.0577])
+2024-11-15 18:40:02,374 [DEBUG] batch_count is: 266
+2024-11-15 18:40:42,275 [INFO] the batch metric is: tensor([0.9641, 0.9753, 0.9173, 0.9324])
+2024-11-15 18:40:42,276 [DEBUG] test_metric in this batch is: tensor([237.4163, 229.4220, 226.5743, 232.9902])
+2024-11-15 18:40:42,276 [DEBUG] batch_count is: 267
+2024-11-15 18:41:10,723 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:41:10,724 [DEBUG] test_metric in this batch is: tensor([238.4163, 230.4220, 227.5743, 233.9902])
+2024-11-15 18:41:10,724 [DEBUG] batch_count is: 268
+2024-11-15 18:41:34,081 [INFO] the batch metric is: tensor([0.9330, 0.9330, 0.9330, 0.9330])
+2024-11-15 18:41:34,081 [DEBUG] test_metric in this batch is: tensor([239.3493, 231.3550, 228.5073, 234.9232])
+2024-11-15 18:41:34,081 [DEBUG] batch_count is: 269
+2024-11-15 18:41:55,793 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 18:42:28,904 [INFO] the batch metric is: tensor([0.7432, 0.4868, 0.7432, 0.5673])
+2024-11-15 18:42:28,905 [DEBUG] test_metric in this batch is: tensor([240.0925, 231.8419, 229.2505, 235.4905])
+2024-11-15 18:42:28,905 [DEBUG] batch_count is: 270
+2024-11-15 18:43:02,891 [INFO] the batch metric is: tensor([0.9677, 0.4953, 0.4854, 0.9484])
+2024-11-15 18:43:02,891 [DEBUG] test_metric in this batch is: tensor([241.0602, 232.3371, 229.7359, 236.4389])
+2024-11-15 18:43:02,892 [DEBUG] batch_count is: 271
+2024-11-15 18:43:39,588 [INFO] the batch metric is: tensor([0.9035, 0.9074, 0.8166, 0.8273])
+2024-11-15 18:43:39,589 [DEBUG] test_metric in this batch is: tensor([241.9637, 233.2446, 230.5525, 237.2662])
+2024-11-15 18:43:39,589 [DEBUG] batch_count is: 272
+2024-11-15 18:44:21,423 [INFO] the batch metric is: tensor([0.4584, 0.4864, 0.2368, 0.4506])
+2024-11-15 18:44:21,424 [DEBUG] test_metric in this batch is: tensor([242.4221, 233.7310, 230.7893, 237.7168])
+2024-11-15 18:44:21,424 [DEBUG] batch_count is: 273
+2024-11-15 18:45:08,120 [INFO] the batch metric is: tensor([0.9961, 0.9961, 0.9961, 0.9961])
+2024-11-15 18:45:08,120 [DEBUG] test_metric in this batch is: tensor([243.4183, 234.7271, 231.7855, 238.7130])
+2024-11-15 18:45:08,120 [DEBUG] batch_count is: 274
+2024-11-15 18:45:46,154 [INFO] the batch metric is: tensor([0.8810, 0.8810, 0.8810, 0.8810])
+2024-11-15 18:45:46,154 [DEBUG] test_metric in this batch is: tensor([244.2993, 235.6082, 232.6665, 239.5940])
+2024-11-15 18:45:46,155 [DEBUG] batch_count is: 275
+2024-11-15 18:46:43,687 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:46:43,688 [DEBUG] test_metric in this batch is: tensor([245.2993, 236.6082, 233.6665, 240.5940])
+2024-11-15 18:46:43,688 [DEBUG] batch_count is: 276
+2024-11-15 18:47:05,659 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 18:47:27,495 [INFO] the batch metric is: tensor([nan, nan, nan, nan])
+2024-11-15 18:47:51,031 [INFO] the batch metric is: tensor([0.8743, 0.8743, 0.8743, 0.8743])
+2024-11-15 18:47:51,034 [DEBUG] test_metric in this batch is: tensor([246.1736, 237.4824, 234.5408, 241.4683])
+2024-11-15 18:47:51,034 [DEBUG] batch_count is: 277
+2024-11-15 18:48:18,228 [INFO] the batch metric is: tensor([0.2324, 0.2324, 0.2324, 0.2324])
+2024-11-15 18:48:18,228 [DEBUG] test_metric in this batch is: tensor([246.4059, 237.7148, 234.7732, 241.7007])
+2024-11-15 18:48:18,228 [DEBUG] batch_count is: 278
+2024-11-15 18:49:02,892 [INFO] the batch metric is: tensor([0.9380, 0.7581, 0.7249, 0.8801])
+2024-11-15 18:49:02,892 [DEBUG] test_metric in this batch is: tensor([247.3439, 238.4729, 235.4980, 242.5808])
+2024-11-15 18:49:02,892 [DEBUG] batch_count is: 279
+2024-11-15 18:49:38,537 [INFO] the batch metric is: tensor([1., 1., 1., 1.])
+2024-11-15 18:49:38,537 [DEBUG] test_metric in this batch is: tensor([248.3439, 239.4729, 236.4980, 243.5808])
+2024-11-15 18:49:38,537 [DEBUG] batch_count is: 280
+2024-11-15 18:50:28,270 [INFO] the batch metric is: tensor([0.9724, 0.9724, 0.9724, 0.9724])
+2024-11-15 18:50:28,271 [DEBUG] test_metric in this batch is: tensor([249.3164, 240.4453, 237.4704, 244.5532])
+2024-11-15 18:50:28,271 [DEBUG] batch_count is: 281
+2024-11-15 18:50:57,930 [INFO] the batch metric is: tensor([0.8355, 0.8424, 0.7239, 0.7289])
+2024-11-15 18:50:57,930 [DEBUG] test_metric in this batch is: tensor([250.1519, 241.2877, 238.1943, 245.2821])
+2024-11-15 18:50:57,930 [DEBUG] batch_count is: 282
+2024-11-15 18:51:50,787 [INFO] the batch metric is: tensor([0.9594, 0.7033, 0.7006, 0.9544])
+2024-11-15 18:51:50,788 [DEBUG] test_metric in this batch is: tensor([251.1113, 241.9910, 238.8949, 246.2365])
+2024-11-15 18:51:50,788 [DEBUG] batch_count is: 283
+2024-11-15 18:52:21,676 [INFO] the batch metric is: tensor([0.9771, 0.5000, 0.9771, 0.9547])
+2024-11-15 18:52:21,677 [DEBUG] test_metric in this batch is: tensor([252.0884, 242.4910, 239.8720, 247.1912])
+2024-11-15 18:52:21,677 [DEBUG] batch_count is: 284
+2024-11-15 18:53:16,453 [INFO] the batch metric is: tensor([0.8940, 0.8940, 0.8940, 0.8940])
+2024-11-15 18:53:16,454 [DEBUG] test_metric in this batch is: tensor([252.9823, 243.3850, 240.7659, 248.0851])
+2024-11-15 18:53:16,454 [DEBUG] batch_count is: 285
+2024-11-15 18:53:49,518 [INFO] the batch metric is: tensor([0.9713, 0.9799, 0.9345, 0.9452])
+2024-11-15 18:53:49,519 [DEBUG] test_metric in this batch is: tensor([253.9537, 244.3649, 241.7005, 249.0304])
+2024-11-15 18:53:49,519 [DEBUG] batch_count is: 286
+2024-11-15 18:54:13,972 [INFO] the batch metric is: tensor([0.8580, 0.8580, 0.8580, 0.8580])
+2024-11-15 18:54:13,972 [DEBUG] test_metric in this batch is: tensor([254.8116, 245.2228, 242.5584, 249.8884])
+2024-11-15 18:54:13,972 [DEBUG] batch_count is: 287
+2024-11-15 18:54:13,973 [INFO] pixel_accuracy: 0.8878453969955444
+2024-11-15 18:54:13,973 [INFO] mean_pixel_accuracy: 0.8544349670410156
+2024-11-15 18:54:13,973 [INFO] mean_iou: 0.8451513648033142
+2024-11-15 18:54:13,973 [INFO] frequency_weighted_iou: 0.8706911206245422
