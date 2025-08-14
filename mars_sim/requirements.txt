@@ -1,0 +1,4 @@
+rospy
+rosbag
+rospkg
+catkin_tools

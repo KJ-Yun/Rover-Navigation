@@ -49,12 +49,12 @@ if __name__ == "__main__":
     # 加载模型
     net = UNet(n_channels=1, n_classes=5).to(device)
 
-    net.load_state_dict(torch.load('checkpoints/best_model.pth', map_location=device, weights_only=True))
+    net.load_state_dict(torch.load('model/UNet/checkpoints/best_model.pth', map_location=device, weights_only=True))
     net.eval()
 
     # 输入目录
-    image_dir = "predict"
-    output_dir = os.path.join(os.path.dirname(image_dir), "semantic_seg")
+    image_dir = "data/realword_data/Log/Colmap/images"
+    output_dir = "output/realword_data_inference"
     os.makedirs(output_dir, exist_ok=True)
 
     # 遍历所有 PNG
@@ -69,10 +69,11 @@ if __name__ == "__main__":
 
                 # 推理
                 pred = net(img_tensor)
-                print("pred shape", pred.shape)
+                # print("pred shape", pred.shape)
+                pred = torch.softmax(pred, dim=1)
                 pred_mask = torch.argmax(pred, dim=1).squeeze(0).cpu().numpy().astype(np.uint8)
-                print(pred_mask)
-                break
+                # print(pred_mask)
+                
                 ori_img = Image.open(img_path)
 
                 # 映射颜色
@@ -81,5 +82,6 @@ if __name__ == "__main__":
                 # 保存到输出目录
                 save_path = os.path.join(output_dir, fname)
                 mask_image.save(save_path)
+                
 
     print(f"推理完成，结果已保存到: {output_dir}")

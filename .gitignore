@@ -1,6 +1,14 @@
+# ROS 
+.catkin_tools
+devel/
+logs/
+
 # data dir
 data/
 fake_terrian/
+checkpoints/
+output/
+
 
 
 # Byte-compiled / optimized / DLL files
