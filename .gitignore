@@ -1,3 +1,7 @@
+# pytorch
+*.pth
+*.pt
+
 # ROS 
 .catkin_tools
 devel/
