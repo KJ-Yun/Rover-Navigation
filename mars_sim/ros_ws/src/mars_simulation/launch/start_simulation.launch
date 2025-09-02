@@ -1,24 +1,12 @@
 <launch>
-    <arg name="mars" default="$(find mars_simulation)/worlds/mars.world"/>
+  <arg name="world_name" default="$(find mars_simulation)/worlds/mars.world"/>
 
-    <!-- 启动Gazebo世界 -->
-    <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(arg mars)"/>
-    </include>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)"/>
+  </include>
 
-    <!-- 加载机器人描述 -->
-    <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
-        <arg name="x" value="0"/>
-        <arg name="y" value="0"/>
-        <arg name="z" value="0"/>
-        <arg name="joystick" value="false" />
-        <arg name="config" value="custom" />
-    </include>
-    
-    <!-- 键盘控制节点 -->
-    <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" 
-            output="screen" launch-prefix="xterm -e">
-        <remap from="cmd_vel" to="/jackal_velocity_controller/cmd_vel"/>
-    </node>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find jackal_description)/urdf/jackal.urdf.xacro" />
 
+  <node name="spawn_jackal" pkg="gazebo_ros" type="spawn_model"
+    args="-urdf -param robot_description -model jackal -x 0 -y 0 -z 3" />
 </launch>

@@ -1,14 +1,20 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <world name="mars_environment">
+  <world name="default">
+
+    <!-- 火星地形模型 -->
+    <include>
+      <uri>model://mars_terrain</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
     
     <!-- 火星重力设置 (约为地球的38%) -->
     <gravity>0 0 -3.71</gravity>
     
     <!-- 火星大气和风力设置 -->
     <atmosphere type="adiabatic">
-      <temperature>218</temperature>          <!-- 火星平均温度 -55°C -->
-      <pressure>101325</pressure>             <!-- 大气压力 -->
+      <temperature>218</temperature>          
+      <pressure>101325</pressure>             
       <temperature_gradient>-0.0065</temperature_gradient>
     </atmosphere>
     
@@ -17,7 +23,6 @@
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
-      <!-- 调整空气阻力以模拟火星稀薄大气 -->
       <ode>
         <solver>
           <type>quick</type>
@@ -34,36 +39,24 @@
     </physics>
     
     <!-- 火星光照环境 - 红橙色调 -->
-    <scene>
-      <!-- 火星天空颜色 -->
+    <scene>   
       <sky>
         <clouds>
           <speed>12</speed>
         </clouds>
-        <ambient>0.5 0.25 0.15 1</ambient>        <!-- 更红的环境光 -->
-        <background>0.8 0.4 0.25 1</background>  <!-- 更红的火星天空背景色 -->
+        <ambient>0.5 0.25 0.15 1</ambient>        
+        <background>0.8 0.4 0.25 1</background>  
       </sky>
-      
-      <!-- 全局环境光 -->
       <ambient>0.6 0.3 0.2 1</ambient>
       <background>0.8 0.4 0.25 1</background>
-      
-      <!-- 阴影设置 -->
        <shadows>1</shadows>
-     <!-- <fog>
-        <color>0.85 0.5 0.35 1</color>  
-        <type>linear</type>
-        <start>10</start>
-        <end>100</end>
-        <density>0.15</density>
-      </fog>-->
     </scene> 
     
     <!-- 太阳光源 - 模拟火星接收的阳光 -->
     <light name="sun" type="directional">
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
-      <diffuse>0.9 0.5 0.3 1</diffuse>      <!-- 更强的红橙色阳光 -->
+      <diffuse>0.9 0.5 0.3 1</diffuse>      
       <specular>0.7 0.4 0.25 1</specular>
       <attenuation>
         <range>1000</range>
@@ -71,32 +64,25 @@
         <linear>0.01</linear>
         <quadratic>0.001</quadratic>
       </attenuation>
-      <direction>-0.5 0.1 -0.9</direction>  <!-- 太阳角度 -->
+      <direction>-0.5 0.1 -0.9</direction>  
     </light>
     
     <!-- 补充光源模拟散射光 -->
-    <!-- <light name="ambient_light" type="directional">
+    <light name="ambient_light" type="directional">
       <cast_shadows>0</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
       <diffuse>0.4 0.2 0.1 1</diffuse>      
       <specular>0.15 0.1 0.05 1</specular>
       <direction>0.5 0.1 -0.8</direction>
-    </light> -->
-    
-    <!-- 火星地形模型 -->
-    <include>
-      <uri>model://mars_terrain</uri>
-      <pose>0 0 0 0 0 0</pose>
-    </include>
-
+    </light>
     
     <!-- 风力效果 - 模拟火星沙尘暴 -->
-    <!-- <wind>
+    <wind>
       <linear_velocity>2 1 0</linear_velocity>  
-    </wind> -->
+    </wind>
     
     <!-- 粒子系统模拟沙尘 -->
-    <!-- <model name="dust_particle_system">
+    <model name="dust_particle_system">
       <static>true</static>
       <pose>0 0 5 0 0 0</pose>
       <link name="link">
@@ -104,7 +90,7 @@
           <emitting>true</emitting>
           <size>100 100 10</size>               
           <particle_size>0.01 0.05</particle_size>  
-          <lifetime>10</lifetime>               
+          <lifetime>10</lifetime>              
           <min_velocity>0.5</min_velocity>      
           <max_velocity>2.0</max_velocity>      
           <scale_rate>0</scale_rate>
@@ -115,12 +101,12 @@
           </material>
         </particle_emitter>
       </link>
-    </model> -->
+    </model>
     
     <!-- GUI配置 -->
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>20 -20 15 0 0.3 2.3</pose>  <!-- 相机初始位置 -->
+        <pose>20 -20 15 0 0.3 2.3</pose>  
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -129,7 +115,7 @@
     <!-- 可选：添加一些火星岩石 -->
     <!-- <model name="mars_rock_1">
       <static>true</static>
-      <pose>10 15 0.5 0 0 0</pose>
+      <pose>1 0 0.5 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
@@ -155,7 +141,7 @@
     
     <!-- <model name="mars_rock_2">
       <static>true</static>
-      <pose>-15 -10 0.3 0 0 0.5</pose>
+      <pose>-1 2 0.3 0 0 0.5</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
