@@ -331,7 +331,6 @@ class MarsTerrainGenerator:
             <pos>0 0 0</pos>
             <texture>
               <diffuse>model://{self.model_name}/materials/textures/texture.png</diffuse>
-              <normal>model://{self.model_name}/materials/textures/texture.png</normal>
               <size>{terrain_info['real_x_length']:.2f}</size>
             </texture>
           </heightmap>

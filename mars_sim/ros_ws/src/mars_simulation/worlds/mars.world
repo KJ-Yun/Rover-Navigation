@@ -75,13 +75,13 @@
     </light>
     
     <!-- 补充光源模拟散射光 -->
-    <light name="ambient_light" type="directional">
+    <!-- <light name="ambient_light" type="directional">
       <cast_shadows>0</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
-      <diffuse>0.4 0.2 0.1 1</diffuse>      <!-- 更红的散射光 -->
+      <diffuse>0.4 0.2 0.1 1</diffuse>      
       <specular>0.15 0.1 0.05 1</specular>
       <direction>0.5 0.1 -0.8</direction>
-    </light>
+    </light> -->
     
     <!-- 火星地形模型 -->
     <include>
@@ -91,31 +91,31 @@
 
     
     <!-- 风力效果 - 模拟火星沙尘暴 -->
-    <wind>
-      <linear_velocity>2 1 0</linear_velocity>  <!-- 持续的横风 -->
-    </wind>
+    <!-- <wind>
+      <linear_velocity>2 1 0</linear_velocity>  
+    </wind> -->
     
     <!-- 粒子系统模拟沙尘 -->
-    <model name="dust_particle_system">
+    <!-- <model name="dust_particle_system">
       <static>true</static>
       <pose>0 0 5 0 0 0</pose>
       <link name="link">
         <particle_emitter name="dust_emitter" type="box">
           <emitting>true</emitting>
-          <size>100 100 10</size>               <!-- 发射区域大小 -->
-          <particle_size>0.01 0.05</particle_size>  <!-- 粒子大小范围 -->
-          <lifetime>10</lifetime>               <!-- 粒子生命周期 -->
-          <min_velocity>0.5</min_velocity>      <!-- 最小速度 -->
-          <max_velocity>2.0</max_velocity>      <!-- 最大速度 -->
+          <size>100 100 10</size>               
+          <particle_size>0.01 0.05</particle_size>  
+          <lifetime>10</lifetime>               
+          <min_velocity>0.5</min_velocity>      
+          <max_velocity>2.0</max_velocity>      
           <scale_rate>0</scale_rate>
-          <rate>50</rate>                       <!-- 发射率 -->
+          <rate>50</rate>                       
           <material>
-            <diffuse>0.9 0.55 0.4 0.4</diffuse> <!-- 更红的沙尘颜色，稍微增加不透明度 -->
+            <diffuse>0.9 0.55 0.4 0.4</diffuse> 
             <specular>0.1 0.05 0.02 1</specular>
           </material>
         </particle_emitter>
       </link>
-    </model>
+    </model> -->
     
     <!-- GUI配置 -->
     <gui fullscreen='0'>
@@ -127,7 +127,7 @@
     </gui>
     
     <!-- 可选：添加一些火星岩石 -->
-    <model name="mars_rock_1">
+    <!-- <model name="mars_rock_1">
       <static>true</static>
       <pose>10 15 0.5 0 0 0</pose>
       <link name="link">
@@ -145,15 +145,15 @@
             </sphere>
           </geometry>
           <material>
-            <ambient>0.5 0.3 0.2 1</ambient>   <!-- 火星岩石颜色 -->
+            <ambient>0.5 0.3 0.2 1</ambient>   
             <diffuse>0.7 0.4 0.3 1</diffuse>
             <specular>0.1 0.1 0.1 1</specular>
           </material>
         </visual>
       </link>
-    </model>
+    </model> -->
     
-    <model name="mars_rock_2">
+    <!-- <model name="mars_rock_2">
       <static>true</static>
       <pose>-15 -10 0.3 0 0 0.5</pose>
       <link name="link">
@@ -177,7 +177,7 @@
           </material>
         </visual>
       </link>
-    </model>
+    </model> -->
     
   </world>
 </sdf>

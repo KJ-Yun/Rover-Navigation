@@ -5,9 +5,9 @@
 ```bash 
 conda create -n mars_sim python=3.10
 conda activate mars_sim
-conda install -c conda-forge gdal numpy pillow
-pip install -r mars_sim/requirments.txt -i https://rospypi.github.io/simple/
-sudo apt install ros-noetic-jackal-desktop ros-noetic-jackal-simulator ros-noetic-teleop-twist-keyboard ros-noetic-velodyne
+conda install -c conda-forge gdal numpy pillow libgdal-jp2openjpeg
+pip install -r mars_sim/requirements.txt
+sudo apt install ros-noetic-jackal-desktop ros-noetic-jackal-simulator ros-noetic-teleop-twist-keyboard ros-noetic-velodyne ros-noetic-velodyne-gazebo-plugins
 ```
 
 ### Create a Mars environment
@@ -20,6 +20,7 @@ gdalinfo DTEEC_083964_1980_083529_1980_A01.IMG
 gdal_translate -ot Byte -of PNG <file_name>.JP2 texture.png
 ```
 可以看到所在目录下有已经转换好的png纹理图
+
 3. 纹理图的拍摄区域一般是和高程图对应的（即使有误差也误差不大，可以用`gdalinfo `查看），所以我们只对纹理图选取ROI，由于将高程图和纹理图导入gazebo要求图片大小必须为$(2^n+1)\times (2^n+1)$，所以我们一般选择的区域一般为$129\times 129$或$257\times 257$，找到选取区域左上角的像素点位置(x,y)，注意选取的区域中不能包含黑的的nodata区域，执行
 ```bash
 cd mars_sim

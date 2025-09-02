@@ -2,3 +2,5 @@ rospy
 rosbag
 rospkg
 catkin_tools
+empy
+defusedxml

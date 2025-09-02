@@ -12,7 +12,7 @@
         <arg name="y" value="0"/>
         <arg name="z" value="0"/>
         <arg name="joystick" value="false" />
-        <arg name="config" value="base" />
+        <arg name="config" value="custom" />
     </include>
     
     <!-- 键盘控制节点 -->
