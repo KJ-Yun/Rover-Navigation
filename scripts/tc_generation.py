@@ -190,6 +190,7 @@ def compute_tc_from_imu_data(
         method='cubic',
         fill_value=np.nan
     )
+    tc_grid_interp = np.clip(tc_grid_interp, 0.0, 1.0)
 
     return tc_grid_interp
 
