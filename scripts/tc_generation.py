@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from scipy.interpolate import griddata
+import json
+import argparse
 
 
 # === 定义通行性计算函数 ===
@@ -216,15 +218,24 @@ def visualize_tc_map(tc_map: np.ndarray, x0: float, x1: float, y0: float, y1: fl
 
 
 def main():
+    pharse = argparse.ArgumentParser()
+    pharse.add_argument('--data_file', type=str, default='./data/imu_data.json', help='IMU数据文件路径')
+    args = pharse.parse_args()
+    
     # === 读取数据 ===
-    df = pd.read_csv("../data/merged_frame_info.csv")  # 路径根据实际情况调整
+    with open (args.data_file, 'r') as f:
+        data = json.load(f)  # 路径根据实际情况调整
 
     # === 提取字段 ===
-    time = df['time'].to_numpy()[..., None]
-    acc_data = df[['acc_x', 'acc_y', 'acc_z']].to_numpy()
-    gyro_data = df[['gyr_x', 'gyr_y', 'gyr_z']].to_numpy()
-    positions = df[['x', 'y', 'z']].to_numpy()
-    imu_data = np.concatenate([time,positions,acc_data,gyro_data], axis=1)
+    imu_data = []
+    for frame_id, info in data.items():
+        imu_data.append([
+            info['time'],
+            info['x'], info['y'], info['z'],
+            info['acc_x'], info['acc_y'], info['acc_z'],
+            info['gyr_x'], info['gyr_y'], info['gyr_z']
+        ])
+    imu_data = np.array(imu_data)
 
     # === 计算TC ===
     tc_map_range = (0, 2, -4, -2)
