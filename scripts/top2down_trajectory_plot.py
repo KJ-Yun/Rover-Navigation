@@ -64,7 +64,8 @@ def draw_topdown(points, colors, trajectory, pc_range, save_path="topdown_view.p
 
 # === 主程序 ===
 if __name__ == '__main__':
-    pc_range = [-4, 8, -8, 4]
-    points, colors = load_point_cloud_npy("../data/colored_pointcloud.npy")
-    trajectory = load_poses("../data/meta_info.json")
-    draw_topdown(points, colors, trajectory, pc_range, save_path="topdown_view.png")
+    pc_range = [-25, 5, -25, 5]
+    root_dir = "../data/indoor/"
+    points, colors = load_point_cloud_npy(root_dir + "pointcloud.npy")
+    trajectory = load_poses(root_dir + "data.json")
+    draw_topdown(points, colors, trajectory, pc_range, save_path=root_dir + "topdown_view.png")

@@ -195,7 +195,7 @@ def process_imu_data(mat_file, imu_file, output_path):
         meta_info[frame_id] = frame_info
 
     # 保存IMU数据为JSON文件
-    json_output_path = os.path.join(output_path, 'meta_info.json')
+    json_output_path = os.path.join(output_path, 'data.json')
     with open(json_output_path, 'w', encoding='utf-8') as f:
         json.dump(meta_info, f, indent=2, ensure_ascii=False)
     
@@ -221,7 +221,7 @@ if __name__ == "__main__":
     
     # 处理点云数据
     print("\n=== 处理点云数据 ===")
-    pcd_output_path = os.path.join(args.output_path, 'colored_pointcloud.npy')
+    pcd_output_path = os.path.join(args.output_path, 'pointcloud.npy')
     pcd_success = process_pointcloud(args.pcd_file, pcd_output_path)
     
     # 输出处理结果
