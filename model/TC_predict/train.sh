@@ -1,0 +1,1 @@
+torchrun --standalone --nproc_per_node=gpu multi_gpu_train.py

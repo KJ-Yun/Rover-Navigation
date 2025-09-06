@@ -9,6 +9,7 @@ from PIL import Image
 from torchvision import transforms
 
 from TCPredictionNet import TCPredictionNet
+from dataset import PCImageDataset, collate_fn
 
 
 # ====== 数据集 ======
@@ -56,19 +57,23 @@ def main():
 
     # === 模型 ===
     model = TCPredictionNet(
-        pc_range=(-50, -50, -5, 50, 50, 3),
-        bev_H=200, bev_W=200, bev_channels=8,
+        pc_range=(0, 0, -5, 1, 1, 5),
+        bev_H=100, bev_W=100, bev_channels=8,
         max_points_per_pillar=100,
-        use_relative_xyz=True, use_rgb=False,
+        use_relative_xyz=True, use_rgb=True,
         fpn_out_channels=128,
         use_modulation=True, modulation_dim=384,
-        dinov3_repo="/mnt/d/Rover-Navigation/model/dinov3",
-        dinov3_weight="/mnt/d/Rover-Navigation/model/dinov3/weight/weight.pth"
+        dinov3_repo="dinov3",
+        dinov3_weight="dinov3/weight/weight.pth"
     ).to(device)
 
     # === 数据 ===
-    dataset = RandomPCImageDataset(n_samples=200, points=5000, img_size=1024)
-    dataloader = DataLoader(dataset, batch_size=8, shuffle=True)
+    dataset = PCImageDataset("D:/rover_pro/data/",
+                             patch_size=1.0, offset=-1.5,
+                             img_size=1024, min_points=100,
+                             img_subdir="Colmap/images",
+                             sample_step=0.1)
+    dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=0, collate_fn=collate_fn)
 
     # === 优化器 & 损失 ===
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
