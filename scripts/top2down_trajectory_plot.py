@@ -28,13 +28,19 @@ def load_poses(json_path):
 
 
 # === 绘制俯视图（x-y 平面） ===
-def draw_topdown(points, colors, trajectory, pc_range, save_path="topdown_view.png"):
-    x_min, x_max, y_min, y_max = pc_range
+def draw_topdown(points, colors, trajectory, pc_range, save_path="topdown_view.png", use_pc_range=True):
+    if use_pc_range:
+        x_min, x_max, y_min, y_max = pc_range
 
-    mask = (points[:, 0] >= x_min) & (points[:, 0] <= x_max) & \
-           (points[:, 1] >= y_min) & (points[:, 1] <= y_max)
-    points = points[mask]
-    colors = colors[mask]
+        mask = (points[:, 0] >= x_min) & (points[:, 0] <= x_max) & \
+               (points[:, 1] >= y_min) & (points[:, 1] <= y_max)
+        points = points[mask]
+        colors = colors[mask]
+    else:
+        x_min = points[:, 0].min()
+        x_max = points[:, 0].max()
+        y_min = points[:, 1].min()
+        y_max = points[:, 1].max()
 
     fig, ax = plt.subplots(figsize=(10, 10))
 
@@ -64,8 +70,9 @@ def draw_topdown(points, colors, trajectory, pc_range, save_path="topdown_view.p
 
 # === 主程序 ===
 if __name__ == '__main__':
-    pc_range = [-25, 5, -25, 5]
-    root_dir = "../data/indoor/"
+    pc_range = [-0.5, 3, -7, 0.5]
+    use_pc_range = True  # 是否使用预设的pc_range裁剪点云显示范围
+    root_dir = "/home/jet/Desktop/proj/data/15/"
     points, colors = load_point_cloud_npy(root_dir + "pointcloud.npy")
     trajectory = load_poses(root_dir + "data.json")
-    draw_topdown(points, colors, trajectory, pc_range, save_path=root_dir + "topdown_view.png")
+    draw_topdown(points, colors, trajectory, pc_range, save_path=root_dir + "topdown_view.png", use_pc_range=use_pc_range)

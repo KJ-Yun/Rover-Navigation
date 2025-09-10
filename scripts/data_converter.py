@@ -8,10 +8,10 @@ import open3d as o3d
 
 # 坐标转换矩阵
 T_lidar2cam = np.array([
-        [-0.99936802, -0.02345525, -0.0267097, -0.0419714],
-        [0.02509308, 0.06670404, -0.99745722, 0.01825039],
-        [0.02517725, -0.99749708, -0.06607332, -0.07806771],
-        [0, 0, 0, 1]
+        [-0.999946993346232,-0.00800835494170636,0.00647122468774145,-0.00498667711611016],
+        [-0.00664188970645313,0.0214710177437833,-0.999747408447841,-0.0158810369834515],
+        [0.00786738831880689,-0.999737396343747,-0.0215230702472327,-0.145366505605775],
+        [0,0,0,1]
 ])
 T_lidar2imu = np.array([
     [1, 0, 0, 0.011],
@@ -208,21 +208,23 @@ if __name__ == "__main__":
     # 添加命令行参数
     import argparse
     parser = argparse.ArgumentParser(description='处理IMU数据和点云数据，转换到ego坐标系')
-    parser.add_argument('--mat_file', type=str, default='mat_out.txt', help='mat_out.txt文件路径')
-    parser.add_argument('--imu_file', type=str, default='imu.txt', help='imu.txt文件路径')
-    parser.add_argument('--pcd_file', type=str, default='all_raw_points.pcd', help='点云文件路径')
-    parser.add_argument('--output_path', type=str, default='./', help='输出文件路径')
+    parser.add_argument('--data_dir', type=str, required=True, help='数据目录路径（包含mat_out.txt, imu.txt, all_raw_points.pcd）')
     args = parser.parse_args()
     
+    mat_file = os.path.join(args.data_dir, 'mat_out.txt')
+    imu_file = os.path.join(args.data_dir, 'imu.txt')
+    pcd_file = os.path.join(args.data_dir, 'PCD', 'all_raw_points.pcd')
+    output_path = args.data_dir  # 输出路径与数据目录相同
+
     print("开始处理IMU和点云数据...")
     
     # 处理IMU数据
-    json_path, frame_count = process_imu_data(args.mat_file, args.imu_file, args.output_path)
+    json_path, frame_count = process_imu_data(mat_file, imu_file, output_path)
     
     # 处理点云数据
     print("\n=== 处理点云数据 ===")
-    pcd_output_path = os.path.join(args.output_path, 'pointcloud.npy')
-    pcd_success = process_pointcloud(args.pcd_file, pcd_output_path)
+    pcd_output_path = os.path.join(output_path, 'pointcloud.npy')
+    pcd_success = process_pointcloud(pcd_file, pcd_output_path)
     
     # 输出处理结果
     print("\n" + "="*50)

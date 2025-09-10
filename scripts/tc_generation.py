@@ -143,6 +143,38 @@ def normalize_values(values, method='minmax'):
     
     return normalized
 
+def bayesian_kernel_interpolation(x_vals, y_vals, tc_vals, grid_xi, grid_yi, radius=1.0):
+    """
+    使用贝叶斯核插值替代griddata
+    """
+    def sparse_kernel(d, r):
+        """论文中的稀疏核函数"""
+        if d > r:
+            return 0
+        return (2 + np.cos(2*np.pi*d/r))/3 * (1 - d/r) + np.sin(2*np.pi*d/r)/(2*np.pi)
+    
+    H, W = grid_xi.shape
+    result = np.full((H, W), np.nan)
+    
+    for i in range(H):
+        for j in range(W):
+            target_x, target_y = grid_xi[i, j], grid_yi[i, j]
+            
+            # 计算到所有已知点的距离
+            distances = np.sqrt((x_vals - target_x)**2 + (y_vals - target_y)**2)
+            
+            # 计算核权重
+            weights = np.array([sparse_kernel(d, radius) for d in distances])
+            
+            # 只考虑权重大于0的点
+            valid_mask = weights > 0
+            if np.sum(valid_mask) > 0:
+                weighted_sum = np.sum(weights[valid_mask] * tc_vals[valid_mask])
+                weight_sum = np.sum(weights[valid_mask])
+                result[i, j] = weighted_sum / weight_sum
+    
+    return result
+
 def compute_tc_from_imu_data(
     imu_data: np.ndarray,
     pc_range: tuple,
@@ -226,13 +258,21 @@ def compute_tc_from_imu_data(
 
     # 插值处理
     try:
-        tc_grid_interp = griddata(
-            points=(x_vals, y_vals),
-            values=tc_vals,
-            xi=(grid_xi, grid_yi),
-            method='cubic',
-            fill_value=np.nan
+        tc_grid_interp = bayesian_kernel_interpolation(
+            x_vals=x_vals,
+            y_vals=y_vals,
+            tc_vals=tc_vals,
+            grid_xi=grid_xi,
+            grid_yi=grid_yi,
+            radius=1.0
         )
+        # tc_grid_interp = griddata(
+        #     points=(x_vals, y_vals),
+        #     values=tc_vals,
+        #     xi=(grid_xi, grid_yi),
+        #     method='cubic',
+        #     fill_value=np.nan
+        # )
     except Exception as e:
         print(f"Cubic interpolation failed: {e}, trying linear interpolation")
         try:
