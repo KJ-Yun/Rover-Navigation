@@ -14,7 +14,100 @@ from TCPredictionNet import TCPredictionNet
 from dataset import PCImageDataset, collate_fn
 from torch.distributed.elastic.multiprocessing.errors import record
 from tqdm import tqdm
+import argparse
 
+parser = argparse.ArgumentParser(description="Distributed Training for TC Prediction")
+parser.add_argument('--epochs', type=int, default=40, help='Number of training epochs')
+parser.add_argument('--batch_size', type=int, default=2, help='Batch size per GPU')
+parser.add_argument('--lr', type=float, default=0.00001, help='Learning rate')
+parser.add_argument('--loss_fn', type=str, default='huber_smooth', choices=['huber', 'huber_smooth', 'mse'], help='Loss function to use')
+parser.add_argument('--use_rgb', action='store_true', help='Whether to use RGB image features')
+parser.add_argument('--use_modulation', action='store_true', help='Whether to use modulation in the model')
+parser.add_argument('--checkpoint_interval', type=int, default=5, help='Interval (in epochs) to save checkpoints')
+parser.add_argument('--log_dir', type=str, default='logs', help='Directory to save logs')
+parser.add_argument('--checkpoint_dir', type=str, default='checkpoints', help='Directory to save checkpoints')
+args = parser.parse_args()
+
+class HuberLossIgnoreNaN(nn.Module):
+    def __init__(self, delta=1.0, reduction='mean'):
+        super().__init__()
+        self.base_loss = nn.HuberLoss(delta=delta, reduction='none')  # 原生 HuberLoss
+        self.reduction = reduction
+
+    def forward(self, input, target):
+        # 保证 target 在相同设备和 dtype
+        target = target.to(input.device, dtype=input.dtype)
+
+        # mask: 只保留非 NaN 的位置
+        mask = ~torch.isnan(target)
+
+        # 如果全是 NaN，返回 0，避免 NaN 反传
+        if mask.sum() == 0:
+            return torch.tensor(0.0, device=input.device, dtype=input.dtype, requires_grad=True)
+        if torch.any(torch.isnan(input)):
+            raise ValueError("Input contains NaN values.")
+
+        # 计算原始 loss（逐元素）
+        loss = self.base_loss(input, target)
+
+        # 应用 mask
+        loss = loss[mask]
+
+        # reduction
+        if self.reduction == 'mean':
+            return loss.mean()
+        elif self.reduction == 'sum':
+            return loss.sum()
+        else:  # 'none'
+            return loss
+
+class MSELossIgnoreNaN(nn.Module):
+    def __init__(self, reduction='mean'):
+        super().__init__()
+        self.reduction = reduction
+    
+    def forward(self, input, target):
+        mask = ~torch.isnan(target)
+        
+        if mask.sum() == 0:
+            return torch.tensor(0.0, requires_grad=True, device=input.device)
+        
+        valid_input = input[mask]
+        valid_target = target[mask]
+        
+        loss = (valid_input - valid_target) ** 2
+        
+        if self.reduction == 'mean':
+            return loss.mean()
+        elif self.reduction == 'sum':
+            return loss.sum()
+        else:
+            return loss
+
+class HuberLosswithSmoothIgnoreNaN(nn.Module):
+    def __init__(self, delta=1.0, reduction='mean', lambda_smooth=0.1):
+        super().__init__()
+        self.huber_loss = HuberLossIgnoreNaN(delta=delta, reduction=reduction)
+        self.lambda_smooth = lambda_smooth
+        self.reduction = reduction
+
+    def spatial_smoothness_loss(self, pred_costmap, lambda_smooth=0.1):
+        """
+        鼓励相邻像素预测相似
+        """
+        # 水平方向差异
+        diff_h = torch.abs(pred_costmap[:,:,1:,:] - pred_costmap[:,:,:-1,:])
+        # 垂直方向差异  
+        diff_v = torch.abs(pred_costmap[:,:,:,1:] - pred_costmap[:,:,:,:-1])
+        
+        smoothness_loss = diff_h.mean() + diff_v.mean()
+        return lambda_smooth * smoothness_loss
+    
+    def forward(self, input, target):
+        huber = self.huber_loss(input, target)
+        smooth = self.spatial_smoothness_loss(input, self.lambda_smooth)
+        return huber + smooth
+    
 def ddp_setup():
     # Initialize DDP
     local_rank = int(os.environ["LOCAL_RANK"])
@@ -34,8 +127,9 @@ def setup_logging(log_dir, rank):
         ]
     )
 
-def train_net(epochs=40, batch_size=2, lr=0.00001,
-              checkpoint_interval=5, log_dir='logs', checkpoint_dir='checkpoints'):
+def train_net(epochs=40, batch_size=2, lr=0.00001, loss_fn='huber_smooth',
+              checkpoint_interval=5, use_rgb=True, use_modulation=True,
+              log_dir='logs', checkpoint_dir='checkpoints'):
     
     local_rank = int(os.environ["LOCAL_RANK"])
     world_size = int(os.environ["WORLD_SIZE"])
@@ -45,18 +139,29 @@ def train_net(epochs=40, batch_size=2, lr=0.00001,
     if local_rank == 0:
         setup_logging(log_dir, local_rank)
         logging.info(f"Starting training on {world_size} GPUs")
+        logging.info(f"Save logs to {log_dir}, checkpoints to {checkpoint_dir}")
+        logging.info(f"使用的损失函数: {loss_fn}, 学习率: {lr}, 每个GPU的批量大小: {batch_size}")
+        if use_rgb and use_modulation:
+            logging.info("使用 RGB 点云特征和调制模块")
+        elif use_rgb and not use_modulation:
+            logging.info("使用 RGB 点云特征，不使用调制模块")
+        elif not use_rgb and use_modulation:
+            logging.info("不使用 RGB 点云特征，使用调制模块")
+        else:
+            logging.info("不使用 RGB 点云特征和调制模块")
 
     # Create checkpoint directory
     os.makedirs(checkpoint_dir, exist_ok=True)
 
     # Initialize dataset and sampler
-    train_dataset = PCImageDataset("D:/rover_pro/data/",
+    train_dataset = PCImageDataset("data",
                              patch_size=1.0, offset=-1.5,
                              img_size=1024, min_points=100,
                              img_subdir="Colmap/images",
-                             sample_step=0.1)
+                             sample_step=0.1,
+                             prefilter_samples=True)
         
-    train_indices, val_indices = train_test_split(list(range(len(train_dataset))), test_size=0.2, random_state=42)
+    train_indices, val_indices = train_test_split(list(range(len(train_dataset))), test_size=0.1, random_state=42)
     train_subset = torch.utils.data.Subset(train_dataset, train_indices)
     val_subset = torch.utils.data.Subset(train_dataset, val_indices)
     train_sampler = DistributedSampler(train_subset, num_replicas=world_size, rank=local_rank, shuffle=True)
@@ -64,16 +169,19 @@ def train_net(epochs=40, batch_size=2, lr=0.00001,
     train_loader = DataLoader(train_subset, batch_size=batch_size, sampler=train_sampler, collate_fn=collate_fn)
     val_loader = DataLoader(val_subset, batch_size=batch_size, sampler=val_sampler, collate_fn=collate_fn)
 
+    if local_rank == 0:
+        logging.info(f"训练集大小: {len(train_subset)}, 验证集大小: {len(val_subset)}")
+
     # Load model and wrap with DDP
     net = TCPredictionNet(
         pc_range=(0, 0, -5, 1, 1, 5),
         bev_H=100, bev_W=100, bev_channels=8,
         max_points_per_pillar=100,
-        use_relative_xyz=True, use_rgb=True,
+        use_relative_xyz=True, use_rgb=use_rgb,
         fpn_out_channels=128,
-        use_modulation=True, modulation_dim=384,
-        dinov3_repo="dinov3",
-        dinov3_weight="dinov3/weight/weight.pth"
+        use_modulation=use_modulation, modulation_dim=384,
+        dinov3_repo="model/dinov3",
+        dinov3_weight="model/dinov3/weight/weight.pth"
     ).to(device)
 
     net = nn.SyncBatchNorm.convert_sync_batchnorm(net)
@@ -81,7 +189,12 @@ def train_net(epochs=40, batch_size=2, lr=0.00001,
 
     # Define optimizer and loss function
     optimizer = optim.Adam(net.parameters(), lr = lr, weight_decay=1e-8)
-    criterion = nn.MSELoss()
+    if loss_fn == 'huber':
+        criterion = HuberLossIgnoreNaN()
+    elif loss_fn == 'huber_smooth':
+        criterion = HuberLosswithSmoothIgnoreNaN()
+    else:  # 'mse'
+        criterion = MSELossIgnoreNaN()
 
     # Initialize metrics
     best_val_loss = float('inf')
@@ -164,11 +277,13 @@ def train_net(epochs=40, batch_size=2, lr=0.00001,
             plt.savefig(os.path.join(log_dir, 'learning_curve.png'))
             plt.close()
 
-    
 @record
 def main():
     ddp_setup()
-    train_net(epochs=100, batch_size=8,checkpoint_interval=1)
+    train_net(epochs=args.epochs, batch_size=args.batch_size, lr=args.lr,
+              loss_fn=args.loss_fn, use_rgb=args.use_rgb, use_modulation=args.use_modulation,
+              checkpoint_interval=args.checkpoint_interval, log_dir=args.log_dir, checkpoint_dir=args.checkpoint_dir)
+    # train_net(epochs=30, batch_size=8,checkpoint_interval=1, log_dir='logs/no_modulation', checkpoint_dir='checkpoints/no_modulation')
     dist.destroy_process_group()
 
 if __name__ == "__main__":
