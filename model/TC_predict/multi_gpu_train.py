@@ -15,6 +15,62 @@ from dataset import PCImageDataset, collate_fn
 from torch.distributed.elastic.multiprocessing.errors import record
 from tqdm import tqdm
 
+class HuberLossIgnoreNaN(nn.Module):
+    def __init__(self, delta=1.0, reduction='mean'):
+        super().__init__()
+        self.base_loss = nn.HuberLoss(delta=delta, reduction='none')  # 原生 HuberLoss
+        self.reduction = reduction
+
+    def forward(self, input, target):
+        # 保证 target 在相同设备和 dtype
+        target = target.to(input.device, dtype=input.dtype)
+
+        # mask: 只保留非 NaN 的位置
+        mask = ~torch.isnan(target)
+
+        # 如果全是 NaN，返回 0，避免 NaN 反传
+        if mask.sum() == 0:
+            return torch.tensor(0.0, device=input.device, dtype=input.dtype, requires_grad=True)
+        if torch.any(torch.isnan(input)):
+            raise ValueError("Input contains NaN values.")
+
+        # 计算原始 loss（逐元素）
+        loss = self.base_loss(input, target)
+
+        # 应用 mask
+        loss = loss[mask]
+
+        # reduction
+        if self.reduction == 'mean':
+            return loss.mean()
+        elif self.reduction == 'sum':
+            return loss.sum()
+        else:  # 'none'
+            return loss
+
+class MSELossIgnoreNaN(nn.Module):
+    def __init__(self, reduction='mean'):
+        super().__init__()
+        self.reduction = reduction
+    
+    def forward(self, input, target):
+        mask = ~torch.isnan(target)
+        
+        if mask.sum() == 0:
+            return torch.tensor(0.0, requires_grad=True, device=input.device)
+        
+        valid_input = input[mask]
+        valid_target = target[mask]
+        
+        loss = (valid_input - valid_target) ** 2
+        
+        if self.reduction == 'mean':
+            return loss.mean()
+        elif self.reduction == 'sum':
+            return loss.sum()
+        else:
+            return loss
+
 def ddp_setup():
     # Initialize DDP
     local_rank = int(os.environ["LOCAL_RANK"])
@@ -50,13 +106,14 @@ def train_net(epochs=40, batch_size=2, lr=0.00001,
     os.makedirs(checkpoint_dir, exist_ok=True)
 
     # Initialize dataset and sampler
-    train_dataset = PCImageDataset("D:/rover_pro/data/",
+    train_dataset = PCImageDataset("data",
                              patch_size=1.0, offset=-1.5,
                              img_size=1024, min_points=100,
                              img_subdir="Colmap/images",
-                             sample_step=0.1)
+                             sample_step=0.1,
+                             prefilter_samples=True)
         
-    train_indices, val_indices = train_test_split(list(range(len(train_dataset))), test_size=0.2, random_state=42)
+    train_indices, val_indices = train_test_split(list(range(len(train_dataset))), test_size=0.1, random_state=42)
     train_subset = torch.utils.data.Subset(train_dataset, train_indices)
     val_subset = torch.utils.data.Subset(train_dataset, val_indices)
     train_sampler = DistributedSampler(train_subset, num_replicas=world_size, rank=local_rank, shuffle=True)
@@ -71,9 +128,9 @@ def train_net(epochs=40, batch_size=2, lr=0.00001,
         max_points_per_pillar=100,
         use_relative_xyz=True, use_rgb=True,
         fpn_out_channels=128,
-        use_modulation=True, modulation_dim=384,
-        dinov3_repo="dinov3",
-        dinov3_weight="dinov3/weight/weight.pth"
+        use_modulation=False, modulation_dim=384,
+        dinov3_repo="model/dinov3",
+        dinov3_weight="model/dinov3/weight/weight.pth"
     ).to(device)
 
     net = nn.SyncBatchNorm.convert_sync_batchnorm(net)
@@ -81,7 +138,7 @@ def train_net(epochs=40, batch_size=2, lr=0.00001,
 
     # Define optimizer and loss function
     optimizer = optim.Adam(net.parameters(), lr = lr, weight_decay=1e-8)
-    criterion = nn.MSELoss()
+    criterion = MSELossIgnoreNaN()
 
     # Initialize metrics
     best_val_loss = float('inf')
@@ -164,11 +221,10 @@ def train_net(epochs=40, batch_size=2, lr=0.00001,
             plt.savefig(os.path.join(log_dir, 'learning_curve.png'))
             plt.close()
 
-    
 @record
 def main():
     ddp_setup()
-    train_net(epochs=100, batch_size=8,checkpoint_interval=1)
+    train_net(epochs=30, batch_size=8,checkpoint_interval=1, log_dir='logs/no_modulation', checkpoint_dir='checkpoints/no_modulation')
     dist.destroy_process_group()
 
 if __name__ == "__main__":

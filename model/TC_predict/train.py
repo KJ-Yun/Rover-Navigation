@@ -11,6 +11,28 @@ from torchvision import transforms
 from TCPredictionNet import TCPredictionNet
 from dataset import PCImageDataset, collate_fn
 
+class MSELossIgnoreNaN(nn.Module):
+    def __init__(self, reduction='mean'):
+        super().__init__()
+        self.reduction = reduction
+    
+    def forward(self, input, target):
+        mask = ~torch.isnan(target)
+        
+        if mask.sum() == 0:
+            return torch.tensor(0.0, requires_grad=True, device=input.device)
+        
+        valid_input = input[mask]
+        valid_target = target[mask]
+        
+        loss = (valid_input - valid_target) ** 2
+        
+        if self.reduction == 'mean':
+            return loss.mean()
+        elif self.reduction == 'sum':
+            return loss.sum()
+        else:
+            return loss
 
 # ====== 数据集 ======
 class RandomPCImageDataset(Dataset):
@@ -63,21 +85,22 @@ def main():
         use_relative_xyz=True, use_rgb=True,
         fpn_out_channels=128,
         use_modulation=True, modulation_dim=384,
-        dinov3_repo="dinov3",
-        dinov3_weight="dinov3/weight/weight.pth"
+        dinov3_repo="model/dinov3",
+        dinov3_weight="model/dinov3/weight/weight.pth"
     ).to(device)
 
     # === 数据 ===
-    dataset = PCImageDataset("D:/rover_pro/data/",
+    dataset = PCImageDataset("data",
                              patch_size=1.0, offset=-1.5,
                              img_size=1024, min_points=100,
                              img_subdir="Colmap/images",
-                             sample_step=0.1)
+                             sample_step=0.1,
+                             prefilter_samples=True)
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=0, collate_fn=collate_fn)
 
     # === 优化器 & 损失 ===
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
-    criterion = nn.MSELoss()
+    criterion = MSELossIgnoreNaN()
 
     # === 训练循环 ===
     for epoch in range(5):

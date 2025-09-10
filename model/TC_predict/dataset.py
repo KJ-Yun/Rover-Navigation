@@ -12,10 +12,15 @@ def collate_fn(batch):
     自定义 collate，用于 DataLoader
     batch: list of (pc_list, img, cost)
     """
+    # 过滤掉None样本
+    valid_samples = [sample for sample in batch if sample is not None]
+    
+    # 如果整个batch都是None，返回空结果
+    if len(valid_samples) == 0:
+        return [], torch.empty(0, 3, 256, 256), torch.empty(0, 1, 100, 100)
+    
     pcs, imgs, costs = [], [], []
-    for sample in batch:
-        if sample is None:  # 可能有跳过的情况
-            continue
+    for sample in valid_samples:
         pc_list, img, cost = sample
         pcs.append(pc_list)     # list of N_i x 6
         imgs.append(img)        # Tensor
@@ -31,7 +36,8 @@ def collate_fn(batch):
 class PCImageDataset(Dataset):
     def __init__(self, root_dir, patch_size=1.0, offset=-1.5,
                  img_size=256, img_subdir="images",
-                 sample_step=1.0, min_points=100):
+                 sample_step=1.0, min_points=100, 
+                 prefilter_samples=True):
         """
         Args:
             root_dir (str): 根目录，里面包含若干 sub_dir
@@ -41,6 +47,7 @@ class PCImageDataset(Dataset):
             img_subdir (str): 图像所在子文件夹
             sample_step (float): 两个样本之间的最小间距（米）
             min_points (int): patch 内点云最少点数，低于则跳过
+            prefilter_samples (bool): 是否在初始化时预过滤有效样本
         """
         self.root_dir = root_dir
         self.patch_size = patch_size
@@ -49,6 +56,7 @@ class PCImageDataset(Dataset):
         self.img_subdir = img_subdir
         self.sample_step = sample_step
         self.min_points = min_points
+        self.prefilter_samples = prefilter_samples
 
         # 图像预处理
         self.img_transform = transforms.Compose([
@@ -95,7 +103,6 @@ class PCImageDataset(Dataset):
                     last_x, last_y = x, y
                 else:
                     dist = np.sqrt((x - last_x) ** 2 + (y - last_y) ** 2)
-                    # print(f"[DEBUG] Subdir {sub}, frame {i} and frame {filtered_indices[-1]} distance: {dist:.3f}m")
                     if dist >= self.sample_step:
                         filtered_indices.append(i)
                         last_x, last_y = x, y
@@ -112,11 +119,106 @@ class PCImageDataset(Dataset):
             }
             self.subdirs.append(sub_info)
 
-            # 建立 samples
-            for i in filtered_indices:
-                self.samples.append((len(self.subdirs) - 1, i))
+            # 建立 samples - 如果启用预过滤，只添加有效样本
+            if self.prefilter_samples:
+                print(f"[INFO] Pre-filtering samples for sequence {sub}...")
+                for i in filtered_indices:
+                    if self._is_valid_sample(len(self.subdirs) - 1, i):
+                        self.samples.append((len(self.subdirs) - 1, i))
+            else:
+                # 不预过滤，添加所有样本
+                for i in filtered_indices:
+                    self.samples.append((len(self.subdirs) - 1, i))
 
-        print(f"[INFO] Loaded {len(self.subdirs)} sequences, {len(self.samples)} raw samples.")
+        if self.prefilter_samples:
+            print(f"[INFO] Loaded {len(self.subdirs)} sequences, {len(self.samples)} valid samples (pre-filtered).")
+        else:
+            print(f"[INFO] Loaded {len(self.subdirs)} sequences, {len(self.samples)} raw samples (not pre-filtered).")
+
+    def _is_valid_sample(self, sub_idx, frame_idx):
+        """
+        检查样本是否有效（不会被跳过）
+        """
+        try:
+            sub_info = self.subdirs[sub_idx]
+            traj = sub_info["traj"]
+            meta = sub_info["meta"]
+            pc_all = sub_info["pc"]
+            tc = sub_info["tc"]
+            img_root = sub_info["img_root"]
+
+            cur_pose = traj[frame_idx]
+            img_path = os.path.join(img_root, cur_pose["image_name"])
+
+            # 检查图像是否存在
+            if not os.path.exists(img_path):
+                return False
+
+            # 获取当前位姿
+            x, y, yaw = cur_pose["x"], cur_pose["y"], cur_pose["yaw"]
+
+            # 计算裁剪中心
+            local_offset_x = 0.0
+            local_offset_y = self.offset
+            
+            cos_yaw = np.cos(yaw)
+            sin_yaw = np.sin(yaw)
+            
+            crop_center_x = x + cos_yaw * local_offset_x - sin_yaw * local_offset_y
+            crop_center_y = y + sin_yaw * local_offset_x + cos_yaw * local_offset_y
+
+            # 定义裁剪范围
+            half_patch = self.patch_size / 2
+            crop_x_min = crop_center_x - half_patch
+            crop_x_max = crop_center_x + half_patch
+            crop_y_min = crop_center_y - half_patch
+            crop_y_max = crop_center_y + half_patch
+
+            # 检查裁剪后的点云是否有足够的点
+            pc_mask = (
+                (pc_all[:, 0] >= crop_x_min) & (pc_all[:, 0] <= crop_x_max) &
+                (pc_all[:, 1] >= crop_y_min) & (pc_all[:, 1] <= crop_y_max)
+            )
+            pc_cropped = pc_all[pc_mask]
+
+            if pc_cropped.shape[0] < self.min_points:
+                return False
+
+            # 检查裁剪范围是否在TC地图范围内
+            tc_x0, tc_x1, tc_y0, tc_y1 = meta["pc_range"]
+            
+            if (crop_x_min < tc_x0 or crop_x_max > tc_x1 or 
+                crop_y_min < tc_y0 or crop_y_max > tc_y1):
+                return False
+
+            # 检查TC栅格索引是否有效
+            grid_size = meta["grid_size"]
+            tc_x_min_idx = int((crop_x_min - tc_x0) / grid_size)
+            tc_x_max_idx = int((crop_x_max - tc_x0) / grid_size)
+            tc_y_min_idx = int((crop_y_min - tc_y0) / grid_size)
+            tc_y_max_idx = int((crop_y_max - tc_y0) / grid_size)
+            
+            tc_H, tc_W = tc.shape
+            tc_x_min_idx = max(0, tc_x_min_idx)
+            tc_x_max_idx = min(tc_W, tc_x_max_idx)
+            tc_y_min_idx = max(0, tc_y_min_idx)
+            tc_y_max_idx = min(tc_H, tc_y_max_idx)
+            
+            if tc_x_max_idx <= tc_x_min_idx or tc_y_max_idx <= tc_y_min_idx:
+                return False
+
+            # 检查TC patch尺寸是否合理
+            expected_tc_size = int(self.patch_size / grid_size)
+            actual_tc_h = tc_y_max_idx - tc_y_min_idx
+            actual_tc_w = tc_x_max_idx - tc_x_min_idx
+            
+            if abs(actual_tc_h - expected_tc_size) > 1 or abs(actual_tc_w - expected_tc_size) > 1:
+                return False
+
+            return True
+
+        except Exception:
+            return False
 
     def __len__(self):
         return len(self.samples)
@@ -176,7 +278,8 @@ class PCImageDataset(Dataset):
         pc_cropped = pc_all[pc_mask].copy()
 
         if pc_cropped.shape[0] < self.min_points:
-            print(f"[WARN] Skip sample {sub_idx}-{frame_idx}, only {pc_cropped.shape[0]} points in patch.")
+            if not self.prefilter_samples:  # 只有在未预过滤时才打印警告
+                print(f"[WARN] Skip sample {sub_idx}-{frame_idx}, only {pc_cropped.shape[0]} points in patch.")
             return None
 
         # === 6. 将裁剪后的点云移动到[0,1,0,1]范围内 ===
@@ -192,9 +295,10 @@ class PCImageDataset(Dataset):
         # 检查裁剪范围是否在TC地图范围内
         if (crop_x_min < tc_x0 or crop_x_max > tc_x1 or 
             crop_y_min < tc_y0 or crop_y_max > tc_y1):
-            print(f"[WARN] Skip sample {sub_idx}-{frame_idx}, crop area out of TC map bounds.")
-            print(f"  Crop range: x[{crop_x_min:.2f}, {crop_x_max:.2f}], y[{crop_y_min:.2f}, {crop_y_max:.2f}]")
-            print(f"  TC range: x[{tc_x0:.2f}, {tc_x1:.2f}], y[{tc_y0:.2f}, {tc_y1:.2f}]")
+            if not self.prefilter_samples:  # 只有在未预过滤时才打印警告
+                print(f"[WARN] Skip sample {sub_idx}-{frame_idx}, crop area out of TC map bounds.")
+                print(f"  Crop range: x[{crop_x_min:.2f}, {crop_x_max:.2f}], y[{crop_y_min:.2f}, {crop_y_max:.2f}]")
+                print(f"  TC range: x[{tc_x0:.2f}, {tc_x1:.2f}], y[{tc_y0:.2f}, {tc_y1:.2f}]")
             return None
 
         # 计算TC地图中的栅格索引范围
@@ -212,7 +316,8 @@ class PCImageDataset(Dataset):
         
         # 检查是否有有效的TC区域
         if tc_x_max_idx <= tc_x_min_idx or tc_y_max_idx <= tc_y_min_idx:
-            print(f"[WARN] Skip sample {sub_idx}-{frame_idx}, invalid TC crop indices.")
+            if not self.prefilter_samples:  # 只有在未预过滤时才打印警告
+                print(f"[WARN] Skip sample {sub_idx}-{frame_idx}, invalid TC crop indices.")
             return None
 
         # 裁剪TC patch
@@ -224,8 +329,9 @@ class PCImageDataset(Dataset):
         
         # 如果尺寸不完全匹配，进行适当调整（通常是边界效应导致的1个像素差异）
         if abs(actual_tc_h - expected_tc_size) > 1 or abs(actual_tc_w - expected_tc_size) > 1:
-            print(f"[WARN] Skip sample {sub_idx}-{frame_idx}, TC patch size mismatch.")
-            print(f"  Expected: {expected_tc_size}x{expected_tc_size}, got: {actual_tc_h}x{actual_tc_w}")
+            if not self.prefilter_samples:  # 只有在未预过滤时才打印警告
+                print(f"[WARN] Skip sample {sub_idx}-{frame_idx}, TC patch size mismatch.")
+                print(f"  Expected: {expected_tc_size}x{expected_tc_size}, got: {actual_tc_h}x{actual_tc_w}")
             return None
         
         # 如果有轻微尺寸差异，进行裁剪或填充到期望尺寸
@@ -281,27 +387,28 @@ class PCImageDataset(Dataset):
             print(f"Image: {img.shape}")
 
         # 转换点云为列表格式
-        pc_list = pc_cropped.tolist()
+        pc = torch.from_numpy(pc_cropped)
 
-        return pc_list, img, tc_patch
-
+        return pc, img, tc_patch
 
 
 if __name__ == "__main__":
-    dataset = PCImageDataset("D:/rover_pro/data/",
+    # 使用预过滤版本（推荐）
+    dataset = PCImageDataset("data",
                              patch_size=1.0, offset=-1.5,
-                             img_size=1024, min_points=100,
+                             img_size=1024, min_points=10000,
                              img_subdir="Colmap/images",
-                             sample_step=0.2)
+                             sample_step=0.1,
+                             prefilter_samples=True)  # 启用预过滤
     print(f"Dataset size: {len(dataset)}")
 
-    from torch.utils.data import DataLoader
-    dataloader = DataLoader(dataset, batch_size=4, shuffle=False, num_workers=0, collate_fn=collate_fn)
+    # from torch.utils.data import DataLoader
+    # dataloader = DataLoader(dataset, batch_size=4, shuffle=False, num_workers=0, collate_fn=collate_fn)
 
-    for i, (pc, img, cost) in enumerate(dataloader):
-        print(f"Batch {i}:")
-        print(f"  Point Cloud: {len(pc[0])}")  # (B, npoints, 6)
-        print(f"  Image: {img.shape}")       # (B, 3, img_size, img_size)
-        print(f"  Cost Patch: {cost.shape}") # (B, 1, H, W)
-        if i == 2:
-            break
+    # for i, (pc, img, cost) in enumerate(dataloader):
+    #     print(f"Batch {i}:")
+    #     print(type(pc), type(img), type(cost), type(pc[0]))
+    #     print(f"  Point Cloud: {len(pc[0]) if len(pc) > 0 else 0}")  # (B, npoints, 6)
+    #     print(f"  Image: {img.shape}")       # (B, 3, img_size, img_size)
+    #     print(f"  Cost Patch: {cost.shape}") # (B, 1, H, W)
+    #     break
