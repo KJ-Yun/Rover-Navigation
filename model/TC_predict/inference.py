@@ -8,7 +8,19 @@ from pathlib import Path
 from tqdm import tqdm
 
 from TCPredictionNet import TCPredictionNet
-from dataset import PCImageDataset, collate_fn
+from dataset import PCImageDataset, collate_fn, create_robustness_configs
+import argparse
+
+parser = argparse.ArgumentParser(description="Inference for TC Prediction Model")
+parser.add_argument('--model_type', type=str, default='origin', help='Type of model to use')
+parser.add_argument('--data_dir', type=str, default='data', help='Directory containing the dataset')
+parser.add_argument('--output_dir', type=str, default='output', help='Directory to save output results')
+parser.add_argument('--sample_ratio', type=float, default=0.2, help='Ratio of dataset to sample for inference')
+parser.add_argument('--roboustness_test', action='store_true', help='Enable robustness testing')
+parser.add_argument('--roboustness_test_mode', type=str, default=None, 
+                    choices=['image_occlusion', 'pointcloud_sparse', 'pointcloud_noise', 'mild_combined', 'severe_combined'],
+                    help='Mode of robustness testing')
+args = parser.parse_args()
 
 # 设置随机种子确保可复现性
 def set_seed(seed=42):
@@ -177,7 +189,7 @@ def inference(model, dataset, device, output_dir, sample_ratio=0.2):
     return avg_mse, avg_mae
 
 
-def load_model(checkpoint_path, device):
+def load_model(checkpoint_path, device, model_type='origin'):
     """
     加载模型
     
@@ -189,13 +201,26 @@ def load_model(checkpoint_path, device):
         model: 加载的模型
     """
     # 创建模型实例（参数需要与训练时一致）
+    if model_type == 'origin':
+        use_rgb = True
+        use_modulation = True
+    elif model_type == 'no_modulation':
+        use_rgb = True
+        use_modulation = False
+    elif model_type == 'pc_with_no_rgb':
+        use_rgb = False
+        use_modulation = True
+    else:
+        use_rgb = False
+        use_modulation = False
+   
     model = TCPredictionNet(
         pc_range=(0, 0, -5, 1, 1, 5),
         bev_H=100, bev_W=100, bev_channels=8,
         max_points_per_pillar=100,
-        use_relative_xyz=True, use_rgb=True,
+        use_relative_xyz=True, use_rgb=use_rgb,
         fpn_out_channels=128,
-        use_modulation=True, modulation_dim=384,
+        use_modulation=use_modulation, modulation_dim=384,
         dinov3_repo="model/dinov3",
         dinov3_weight="model/dinov3/weight/weight.pth"
     )
@@ -228,27 +253,54 @@ def main():
     print(f"使用设备: {device}")
     
     # 路径设置
-    checkpoint_path = "checkpoints/best_model.pth"  # 检查点路径
-    output_dir = "output"  # 输出目录
-    data_dir = "data"  # 数据目录
+    if args.model_type == 'origin':
+        checkpoint_path = "checkpoints/origin/best_model.pth"
+    elif args.model_type == 'no_modulation':
+        checkpoint_path = "checkpoints/no_modulation/best_model.pth"
+    elif args.model_type == 'pc_with_no_rgb':
+        checkpoint_path = "checkpoints/pc_with_no_rgb/best_model.pth"
+    elif args.model_type == 'no_rgb':
+        checkpoint_path = "checkpoints/no_rgb/best_model.pth"
+    else:
+        raise ValueError(f"未知的模型类型: {args.model_type}")
+    data_dir = args.data_dir  # 数据目录
     
     # 加载模型
-    model = load_model(checkpoint_path, device)
+    model = load_model(checkpoint_path, device, args.model_type)
     model.to(device)
     
     # 创建数据集（参数需要与训练时一致）
-    dataset = PCImageDataset(
-        data_dir,
-        patch_size=1.0, 
-        offset=-1.5,
-        img_size=1024, 
-        min_points=100,
-        img_subdir="Colmap/images",
-        sample_step=0.1,
-        prefilter_samples=True
-    )
+    robustness_configs = create_robustness_configs()
+    if args.roboustness_test:
+        print("开启鲁棒性测试...")
+        if args.roboustness_test_mode is None:
+            raise ValueError("启用鲁棒性测试时，必须指定 --roboustness_test_mode 参数")
+        dataset = PCImageDataset(
+            data_dir,
+            patch_size=1.0, 
+            offset=-1.5,
+            img_size=1024, 
+            min_points=100,
+            img_subdir="Colmap/images",
+            sample_step=0.1,
+            prefilter_samples=True,
+            **robustness_configs[args.roboustness_test_mode]
+        )
+    else:
+        dataset = PCImageDataset(
+            data_dir,
+            patch_size=1.0, 
+            offset=-1.5,
+            img_size=1024, 
+            min_points=100,
+            img_subdir="Colmap/images",
+            sample_step=0.1,
+            prefilter_samples=True,
+            robustness_test=False,
+        )
     
     print(f"数据集创建成功，共 {len(dataset)} 个样本")
+    output_dir = args.output_dir
     
     # 执行推理
     avg_mse, avg_mae = inference(model, dataset, device, output_dir, sample_ratio=0.2)
